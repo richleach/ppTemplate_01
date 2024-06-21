@@ -1,0 +1,12 @@
+
+body {
+    background: linear-gradient(180deg, rgba(251,199,212,1) 0%, rgba(151,150,240,1) 100%);
+}
+
+.sideNavItemFormat {
+    padding-bottom: 0;
+}
+.sideNavItemFormat div:nth-child(0) {
+    border-color: blue;
+
+}
