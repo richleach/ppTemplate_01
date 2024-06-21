@@ -3,6 +3,6 @@ import PagePlaceholder from "@/components/page-placeholder";
 
 export default function Home() {
   return (
-<div><PagePlaceholder pageName="home" /></div>
+<div><PagePlaceholder pageName="Home" /></div>
   );
 }
