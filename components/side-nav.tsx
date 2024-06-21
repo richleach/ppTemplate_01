@@ -17,8 +17,8 @@ import { ChevronLeft, ChevronRight } from 'lucide-react';
 export default function SideNav() {
     const navItems = NavItems();
 
-
-    const [isSidebarExpanded, setIsSidebarExpanded] = useState(() => {
+const [isSidebarExpanded, setIsSidebarExpanded] = useState(true);
+    /*const [isSidebarExpanded, setIsSidebarExpanded] = useState(() => {
         // Get the sidebar state from localStorage
         let saved = null;
         if (typeof window !== 'undefined') {
@@ -42,7 +42,7 @@ export default function SideNav() {
             );
         }
     }, [isSidebarExpanded]);
-
+*/
 
     // Toggle the sidebar state
     const toggleSidebar = () => {
