@@ -12,10 +12,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGridRound2Plus, faBookmark } from "@fortawesome/pro-solid-svg-icons";
 
 
-
 import { NavItems } from '@/app/config';
 import { cn } from '@/lib/utils';
-
 
 export default function SideNav() {
     const navItems = NavItems();
@@ -54,12 +52,12 @@ export default function SideNav() {
                             {isSidebarExpanded ? (
                                 <Link
                                     href="/"
-                                    className={`h-full relative flex items-center whitespace-nowrap rounded-md -mb-1 verticalMenuFormat  ${
+                                    className={`h-full relative flex items-center whitespace-nowrap rounded-md  verticalMenuFormat  ${
                                         'font-base text-sm shadow-sm text-neutral-700 dark:bg-neutral-800 dark:text-white'
                                     }`}
                                 >
                                     <div
-                                        className="relative font-base text-sm py-1.5 px-2 flex flex-row items-center space-x-2 rounded-md duration-100 text-white/70 bg-neutral-800/20 ">
+                                        className="relative font-base text-sm py-1.5 px-2 flex flex-row items-center space-x-2 rounded-md duration-100 text-white/70 bg-neutral-800/20 w-full">
                                         <Search size={16}/>
                                         <span>Search for anything</span>
                                     </div>
@@ -83,9 +81,11 @@ export default function SideNav() {
                     </div>
 
                     {/*Quick Actions*/}
-                    <div className="mt-1 relative pb-1 rounded-md">
+                    <div className="mt-1 relative pb-2 rounded-md">
                         <div className="flex flex-col bg-transparent">
                             {isSidebarExpanded ? (
+
+
                                 <Link
                                     href="/"
                                     className={`h-full relative flex items-center whitespace-nowrap rounded-md -mb-1 verticalMenuFormat  ${
@@ -93,7 +93,8 @@ export default function SideNav() {
                                     }`}
                                 >
                                     <div
-                                        className="relative font-base text-sm py-1.5 px-2 flex flex-row items-center space-x-2 rounded-md duration-100 ">
+                                        className="w-full relative font-base text-sm py-1.5 px-2 flex flex-row items-center space-x-2 rounded-md duration-100 bg-white/60">
+                                        <FontAwesomeIcon icon={faGridRound2Plus} size='xl' />
                                         <span>Quick Actions</span>
                                     </div>
                                 </Link>
@@ -102,7 +103,7 @@ export default function SideNav() {
                                 <Link
                                     href="/"
                                     className={`h-full relative flex items-center whitespace-nowrap verticalMenuFormat ${
-                                        'font-base text-sm  bg-white/60 text-neutral-500 dark:bg-neutral-800 dark:text-white rounded-md'
+                                        'font-base text-sm  bg-white/60 text-neutral-500 dark:bg-neutral-800 dark:text-white rounded-md -mb-1'
                                     }`}
                                 >
                                     <div
@@ -155,8 +156,8 @@ export default function SideNav() {
                                     }`}
                                 >
                                     <div
-                                        className="relative font-base text-sm py-1.5 px-2 flex flex-row items-center space-x-2 rounded-md duration-100 ">
-                                        <Search/>
+                                        className="w-full relative font-base text-sm py-1.5 px-4 flex flex-row items-center space-x-2 rounded-md duration-100 bg-white/60">
+                                        <FontAwesomeIcon icon={faBookmark} size='lg' className="text-red-700" />
                                         <span>Bookmarks</span>
                                     </div>
                                 </Link>
@@ -238,7 +239,7 @@ export const SideNavItem: React.FC<{
             {isSidebarExpanded ? (
                 <Link
                     href={path}
-                    className={`h-full relative flex items-center whitespace-nowrap rounded-md -mb-1 verticalMenuFormat  ${
+                    className={`h-full relative flex items-center whitespace-nowrap rounded-md  verticalMenuFormat  ${
                         active
                             ? 'font-base text-sm shadow-sm text-neutral-700 dark:bg-neutral-800 dark:text-white'
                             : 'hover:bg-neutral-200  hover:text-neutral-700 text-neutral-500 dark:text-neutral-400 dark:hover:bg-neutral-800 dark:hover:text-white'
