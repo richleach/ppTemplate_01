@@ -6,7 +6,30 @@ body {
 .sideNavItemFormat {
     padding-bottom: 0;
 }
-.sideNavItemFormat div:nth-child(0) {
+.sideNavItemFormat:nth-child(0) {
     border-color: blue;
 
+}
+
+.widthFormat { @apply text-slate-600 bg-transparent border-t-2 border-slate-700 text-sm tracking-widest }
+
+.menuStyle {@apply border-b-blue-600}
+
+.sideNavItem {
+    /*border: thick solid green;*/
+    color: #66666f;
+    padding: 8px;
+    border-color: 0;
+    border:0;
+}
+
+.sideNavItem:first-child {
+
+    border-radius: 8px 8px 0 0;
+
+
+}
+
+.sideNavItem:last-child {
+    border-radius: 0 0 8px 8px;
 }
