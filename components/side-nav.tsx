@@ -134,7 +134,7 @@ export default function SideNav() {
                                                         isSidebarExpanded={isSidebarExpanded}
                                                     />
                                                     {isSidebarExpanded &&
-                                                    <span style={{marginLeft: "auto"}}><FontAwesomeIcon icon={faChevronRight} size='sm'/></span>
+                                                    <span style={{marginLeft: "auto", color:"#71857a", paddingRight:"10px"}}><FontAwesomeIcon icon={faChevronRight} size='sm' transform="shrink-3"/></span>
                                                     }
                                                 </div>
                                             </div>
@@ -244,7 +244,7 @@ export const SideNavItem: React.FC<{
                     className={`h-full relative flex items-center whitespace-nowrap rounded-md  verticalMenuFormat  ${
                         active
                             ? 'font-base text-sm text-neutral-700 dark:bg-neutral-800 dark:text-white'
-                            : 'hover:bg-neutral-200  hover:text-neutral-700 text-neutral-500 dark:text-neutral-400 dark:hover:bg-neutral-800 dark:hover:text-white'
+                            : ' text-neutral-500 dark:text-neutral-400 dark:hover:bg-neutral-800 dark:hover:text-white'
                     }`}
                 >
                     <div className="relative font-base text-sm py-1.5 px-2 flex flex-row items-center space-x-2 rounded-md duration-100">

@@ -12,7 +12,7 @@ function ViewportWidth() {
 
     return (
         <div>
-            <p>{width}px wide</p>
+            <p style={{position:"absolute", top: 0, left: "500px"}}>{width}px wide</p>
         </div>
     );
 }

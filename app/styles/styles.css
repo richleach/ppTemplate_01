@@ -3,7 +3,7 @@ body {
     background: linear-gradient(180deg, rgba(251,199,212,1) 0%, rgba(151,150,240,1) 100%);
 }
 
-.widthFormat { @apply text-slate-600 bg-transparent border-t-2 border-slate-700 text-sm tracking-widest }
+.widthFormat { @apply text-slate-600 bg-transparent border-t-2 border-slate-700 text-sm tracking-widest h-1/2 }
 
 .menuStyle {@apply border-b-blue-600}
 

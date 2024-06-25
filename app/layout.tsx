@@ -30,18 +30,18 @@ export default function RootLayout({
   return (
       <html lang="en">
       <body className={inter.className}>
-      {/*<div className="hidden sm:block md:hidden bg-slate-300 w-full widthFormat">
+      <div className="hidden sm:block md:hidden bg-slate-300 w-full widthFormat">
           This div is only visible on small screens. <ViewPortWidth />
       </div>
-      <div className="hidden md:block lg:hidden  bg-slate-300 w-full widthFormat">
+     <div className="hidden md:block lg:hidden  bg-slate-300 w-full widthFormat">
           This div is only visible on medium screens. <ViewPortWidth />
       </div>
-      <div className="hidden lg:block xl:hidden  bg-slate-300 w-full widthFormat">
+       <div className="hidden lg:block xl:hidden  bg-slate-300 w-full widthFormat">
           This div is only visible on large screens. <ViewPortWidth />
       </div>
-      <div className="hidden xl:block 2xl:hidden  bg-slate-300 w-full widthFormat">
+     <div className="hidden xl:block 2xl:hidden  bg-slate-300 w-full widthFormat">
           This div is only visible on extra large screens. <ViewPortWidth />
-      </div>*/}
+      </div>{/* */}
       <div className="flex -ml-1">
           <SideNav/>
           <div className="w-full overflow-x-auto">
