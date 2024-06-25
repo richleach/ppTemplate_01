@@ -1,22 +1,9 @@
 import { usePathname } from 'next/navigation';
-import {
-    Bell,
-    Briefcase,
-    CalendarDays,
-    CalendarIcon,
-    ClipboardCheck,
-    Handshake,
-    Home,
-    LineChart,
-    User
-} from 'lucide-react';
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHouse, faHandshake, faBookmark, faChartMixedUpCircleDollar, faClipboardCheck, faCalendarDay} from "@fortawesome/pro-solid-svg-icons";
+import { faHouse, faHandshake, faChartMixedUpCircleDollar, faClipboardCheck, faCalendarDay} from "@fortawesome/pro-solid-svg-icons";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import React from "react";
-
 
 export const NavItems = () => {
     const pathname = usePathname();
@@ -30,35 +17,35 @@ export const NavItems = () => {
         {
             name: 'Home',
             href: '/',
-            icon:  <FontAwesomeIcon icon={faHouse} size='lg' />,
+            icon:  <FontAwesomeIcon icon={faHouse} size='lg' fixedWidth/>,
             active: pathname === '/',
             position: 'top',
         },
         {
             name: 'Leads & Events',
             href: '/',
-            icon: <FontAwesomeIcon icon={faHandshake} size='lg' />,
+            icon: <FontAwesomeIcon icon={faHandshake} size='lg' fixedWidth/>,
             active: isNavItemActive(pathname, '/profile'),
             position: 'top',
         },
         {
             name: 'Financials',
             href: '/',
-            icon: <FontAwesomeIcon icon={faChartMixedUpCircleDollar} size='lg' />,
+            icon: <FontAwesomeIcon icon={faChartMixedUpCircleDollar} size='lg' fixedWidth/>,
             active: isNavItemActive(pathname, '/notifications'),
             position: 'top',
         },
         {
             name: 'Productivity',
             href: '/',
-            icon: <FontAwesomeIcon icon={faClipboardCheck} size='lg' />,
+            icon: <FontAwesomeIcon icon={faClipboardCheck} size='lg' fixedWidth/>,
             active: isNavItemActive(pathname, '/projects'),
             position: 'top',
         },
         {
             name: 'Calendar',
             href: '/',
-            icon: <FontAwesomeIcon icon={faCalendarDay} size='lg' />,
+            icon: <FontAwesomeIcon icon={faCalendarDay} size='lg' fixedWidth/>,
             active: isNavItemActive(pathname, '/projects'),
             position: 'top',
         },

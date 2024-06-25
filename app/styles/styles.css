@@ -3,14 +3,6 @@ body {
     background: linear-gradient(180deg, rgba(251,199,212,1) 0%, rgba(151,150,240,1) 100%);
 }
 
-.sideNavItemFormat {
-    padding-bottom: 0;
-}
-.sideNavItemFormat:nth-child(0) {
-    border-color: blue;
-
-}
-
 .widthFormat { @apply text-slate-600 bg-transparent border-t-2 border-slate-700 text-sm tracking-widest }
 
 .menuStyle {@apply border-b-blue-600}
@@ -21,6 +13,7 @@ body {
     padding: 8px;
     border-color: 0;
     border:0;
+    font-weight: bold;
 }
 
 .sideNavItem:first-child {

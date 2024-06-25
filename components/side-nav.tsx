@@ -94,8 +94,8 @@ export default function SideNav() {
                                 >
                                     <div
                                         className="w-full relative font-base text-sm py-1.5  px-4 pt-5 pb-5  flex flex-row items-center space-x-2 rounded-md duration-100 bg-white/60">
-                                        <FontAwesomeIcon icon={faGridRound2Plus} size='xl' />
-                                        <span>Quick Actions</span>
+                                        <FontAwesomeIcon icon={faGridRound2Plus} size='xl' shake />
+                                        <span className="font-semibold">Quick Actions</span>
                                     </div>
                                 </Link>
                             ) : (
@@ -126,7 +126,7 @@ export default function SideNav() {
                                     return (
                                         <>
                                             <div key={idx} className="bg-white/60 sideNavItem">
-                                                <div>
+                                                <div className=" text-red-700">
                                                     <SideNavItem
                                                         label={item.name}
                                                         icon={item.icon}
@@ -158,7 +158,7 @@ export default function SideNav() {
                                     <div
                                         className="w-full relative font-base text-sm py-1.5 px-4 pt-5 pb-5 flex flex-row items-center space-x-2 rounded-md duration-100 bg-white/60 p-3">
                                         <FontAwesomeIcon icon={faBookmark} size='lg' className="text-red-700" />
-                                        <span>Bookmarks</span>
+                                        <span className="text-zinc-950 font-semibold">Bookmarks</span>
                                     </div>
                                 </Link>
                             ) : (
@@ -247,7 +247,7 @@ export const SideNavItem: React.FC<{
                 >
                     <div className="relative font-base text-sm py-1.5 px-2 flex flex-row items-center space-x-2 rounded-md duration-100">
                         {icon}
-                        <span>{label}</span>
+                        <span className="text-zinc-950">{label}</span>
                     </div>
                 </Link>
             ) : (
