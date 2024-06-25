@@ -9,7 +9,7 @@ import {
 } from 'lucide-react';
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGridRound2Plus, faBookmark } from "@fortawesome/pro-solid-svg-icons";
+import { faGridRound2Plus, faBookmark, faChevronRight } from "@fortawesome/pro-solid-svg-icons";
 
 
 import { NavItems } from '@/app/config';
@@ -75,7 +75,6 @@ export default function SideNav() {
                                         <Search size={16}/>
                                     </div>
                                 </Link>
-
                             )}
                         </div>
                     </div>
@@ -94,7 +93,7 @@ export default function SideNav() {
                                 >
                                     <div
                                         className="w-full relative font-base text-sm py-1.5  px-4 pt-5 pb-5  flex flex-row items-center space-x-2 rounded-md duration-100 bg-white/60">
-                                        <FontAwesomeIcon icon={faGridRound2Plus} size='xl' shake />
+                                        <FontAwesomeIcon icon={faGridRound2Plus} size='xl' />
                                         <span className="font-semibold">Quick Actions</span>
                                     </div>
                                 </Link>
@@ -109,7 +108,7 @@ export default function SideNav() {
                                     <div
                                         className="relative font-base text-sm flex flex-row items-center space-x-2 duration-100 mx-auto  pb-4 pt-4 rounded-md">
                                         {/*<FontAwesomeIcon icon={faThumbsUp} />*/}
-                                        <FontAwesomeIcon icon={faGridRound2Plus} size='xl' />
+                                        <FontAwesomeIcon icon={faGridRound2Plus} size='xl' transform="left-1"/>
                                     </div>
                                 </Link>
 
@@ -126,7 +125,7 @@ export default function SideNav() {
                                     return (
                                         <>
                                             <div key={idx} className="bg-white/60 sideNavItem">
-                                                <div className=" text-red-700">
+                                                <div className={`${isSidebarExpanded ? 'flex' : ''}`}>
                                                     <SideNavItem
                                                         label={item.name}
                                                         icon={item.icon}
@@ -134,6 +133,9 @@ export default function SideNav() {
                                                         active={item.active}
                                                         isSidebarExpanded={isSidebarExpanded}
                                                     />
+                                                    {isSidebarExpanded &&
+                                                    <span style={{marginLeft: "auto"}}><FontAwesomeIcon icon={faChevronRight} size='sm'/></span>
+                                                    }
                                                 </div>
                                             </div>
 
@@ -157,8 +159,8 @@ export default function SideNav() {
                                 >
                                     <div
                                         className="w-full relative font-base text-sm py-1.5 px-4 pt-5 pb-5 flex flex-row items-center space-x-2 rounded-md duration-100 bg-white/60 p-3">
-                                        <FontAwesomeIcon icon={faBookmark} size='lg' className="text-red-700" />
-                                        <span className="text-zinc-950 font-semibold">Bookmarks</span>
+                                        <FontAwesomeIcon icon={faBookmark} size='lg' className="text-red-700 pl-1" />
+                                        <span className="text-zinc-950 font-semibold pl-1">Bookmarks</span>
                                     </div>
                                 </Link>
                             ) : (
@@ -241,7 +243,7 @@ export const SideNavItem: React.FC<{
                     href={path}
                     className={`h-full relative flex items-center whitespace-nowrap rounded-md  verticalMenuFormat  ${
                         active
-                            ? 'font-base text-sm shadow-sm text-neutral-700 dark:bg-neutral-800 dark:text-white'
+                            ? 'font-base text-sm text-neutral-700 dark:bg-neutral-800 dark:text-white'
                             : 'hover:bg-neutral-200  hover:text-neutral-700 text-neutral-500 dark:text-neutral-400 dark:hover:bg-neutral-800 dark:hover:text-white'
                     }`}
                 >
@@ -254,9 +256,9 @@ export const SideNavItem: React.FC<{
 
                 <Link
                     href={path}
-                    className={`h-full relative flex items-center whitespace-nowrap verticalMenuFormat ${
+                    className={`w-full h-full relative flex items-center whitespace-nowrap verticalMenuFormat ${
                         active
-                            ? 'font-base text-sm  bg-white/60 text-neutral-700 dark:bg-neutral-800 dark:text-white'
+                            ? ''
                             : 'hover:bg-neutral-200 hover:text-neutral-700 text-neutral-500 dark:text-neutral-400 dark:hover:bg-neutral-800 dark:hover:text-white'
                     }`}
                 >
