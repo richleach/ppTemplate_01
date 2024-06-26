@@ -33,6 +33,25 @@ export default function PagePlaceholder({ pageName }: { pageName: string }) {
                         w/actions
                     </div>
                 </div>
+                <div className="grid grid-cols-2 grid-rows-2 gap-4">
+
+                    <div
+                        className="flex bg-slate-100 p-4 text-slate-600 text-center items-center justify-center w-full h-80">Report
+                        w/actions
+                    </div>
+                    <div
+                        className="flex bg-slate-100 p-4 text-slate-600 text-center items-center justify-center w-full h-80">Report
+                        w/actions
+                    </div>
+                    <div
+                        className="flex bg-slate-100 p-4 text-slate-600 text-center items-center justify-center w-full h-80">Report
+                        w/actions
+                    </div>
+                    <div
+                        className="flex bg-slate-100 p-4 text-slate-600 text-center items-center justify-center w-full h-80">Report
+                        w/actions
+                    </div>
+                </div>
 
             </div>
         </>
