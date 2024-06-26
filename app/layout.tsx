@@ -50,7 +50,7 @@ export default function RootLayout({
                     <div
                         className="w-full flex justify-center mx-auto overflow-y-auto relative h-[calc(100vh-6px)]">
 
-                        <div className="w-full md:max-w-6xl rounded-3xl bg-white mt-2 ml-2 mr-2 overflow-y-auto"
+                        <div className="w-full rounded-3xl bg-white mt-2 ml-2 mr-2 overflow-y-auto"
                              style={{height: "99dvh"}}>
                             <div className="w-full">
                                 <div className="flex justify-between items-start pl-4 pr-4 pt-4">
