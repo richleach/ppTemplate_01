@@ -48,13 +48,13 @@ export default function SideNav() {
                     {/* Top */}
                     {/*left nav button container*/}
                     {/*Search*/}
-                    <div className="mt-2 relative pb-0 rounded-md">
+                    <div className="mt-2 relative pb-0 rounded-md" key="56">
                         <div className="flex flex-col bg-transparent">
                             {isSidebarExpanded ? (
                                 <Link
                                     href="/"
                                     className={`h-full relative flex items-center whitespace-nowrap rounded-md  verticalMenuFormat  ${
-                                        'font-base text-sm shadow-sm text-neutral-700 dark:bg-neutral-800 dark:text-white'
+                                        'font-base text-sm shadow-sm text-neutral-700 dark:bg-neutral-800 dark:text-white rounded-md'
                                     }`}
                                 >
                                     <div
@@ -67,12 +67,12 @@ export default function SideNav() {
 
                                 <Link
                                     href="/"
-                                    className={`h-full relative flex items-center whitespace-nowrap verticalMenuFormat ${
+                                    className={`h-full relative flex items-center whitespace-nowrap rounded-md verticalMenuFormat ${
                                         'font-base text-sm  bg-neutral-800/20 text-neutral-700 dark:bg-neutral-800 dark:text-white rounded-md'
                                     }`}
                                 >
                                     <div
-                                        className="relative font-base text-sm flex flex-row items-center space-x-2 duration-100 mx-auto  pb-2 pt-2 rounded-md text-white/70 ">
+                                        className="relative font-base text-sm flex flex-row items-center space-x-2 duration-100 mx-auto pb-2 pt-2 rounded-md text-white/70 ">
                                         <FontAwesomeIcon icon={faMagnifyingGlass} size='lg' />
                                     </div>
                                 </Link>
@@ -81,7 +81,7 @@ export default function SideNav() {
                     </div>
 
                     {/*Quick Actions*/}
-                    <div className="mt-1 relative pb-2 rounded-md">
+                    <div className="mt-1 relative pb-2 rounded-md" key="55">
                         <div className="flex flex-col bg-transparent">
                             {isSidebarExpanded ? (
                                 <Link
@@ -91,23 +91,24 @@ export default function SideNav() {
                                     }`}
                                 >
                                     <div
-                                        className="w-full relative font-base text-sm py-1.5  px-4 pt-4 pb-4  flex flex-row items-center space-x-2 rounded-md duration-100 bg-white/60">
-                                        <FontAwesomeIcon icon={faGridRound2Plus} size='xl' />
+                                        className="w-full relative font-base text-sm py-1.5  px-4 pt-4 pb-4  flex flex-row items-center space-x-2 rounded-md duration-0 bg-white/60">
+                                        <span style={{color: "#71857a", paddingLeft: "10px"}}>
+                                            <FontAwesomeIcon icon={faGridRound2Plus} size='xl'/></span>
                                         <span className="font-semibold">Quick Actions</span>
                                     </div>
                                 </Link>
-                            ) : (
+                                ) : (
 
                                 <Link
                                     href="/"
-                                    className={`h-full relative flex items-center whitespace-nowrap verticalMenuFormat ${
+                                    className={`h-full relative flex items-center whitespace-nowrap rounded-md -mb-1 verticalMenuFormat ${
                                         'font-base text-sm  bg-white/60 text-neutral-500 dark:bg-neutral-800 dark:text-white rounded-md -mb-1'
                                     }`}
                                 >
                                     <div
-                                        className="relative font-base text-sm flex flex-row items-center space-x-2 duration-100 mx-auto  pb-4 pt-4 rounded-md">
+                                        className="relative font-base text-sm flex flex-row items-center space-x-2 duration-0 mx-auto  pb-4 pt-4 rounded-md">
                                         {/*<FontAwesomeIcon icon={faThumbsUp} />*/}
-                                        <FontAwesomeIcon icon={faGridRound2Plus} size='xl' transform="left-1"/>
+                                        <FontAwesomeIcon icon={faGridRound2Plus} size='xl' transform="left-1" className="pt-0.5"/>
                                     </div>
                                 </Link>
 
@@ -116,13 +117,12 @@ export default function SideNav() {
                     </div>
 
                     {/*the dynamic part of the menu here*/}
-                    <div className=" relative pb-1 rounded-md">
-                        <div className="flex flex-col bg-transparent">
+                    <div className=" relative pb-1 rounded-md" key="59">
+                        <div className="flex flex-col bg-transparent" key="60">
 
                             {navItems.map((item, idx) => {
                                 if (item.position === 'top') {
                                     return (
-                                        <>
                                             <div key={idx} className="bg-white/60 sideNavItem">
                                                 <div className={`${isSidebarExpanded ? 'flex' : ''}`}>
                                                     <SideNavItem
@@ -137,8 +137,6 @@ export default function SideNav() {
                                                     }
                                                 </div>
                                             </div>
-
-                                        </>
                                     );
                                 }
                             })}
@@ -147,21 +145,29 @@ export default function SideNav() {
                     </div>
 
                     {/*Bookmarks*/}
-                    <div className="relative pb-0 rounded-md">
+                    <div className="relative pb-0 rounded-md" key="57">
                         <div className="flex flex-col bg-transparent">
                             {isSidebarExpanded ? (
-                                <Link
-                                    href="/"
-                                    className={`h-full relative flex items-center whitespace-nowrap rounded-md  verticalMenuFormat  ${
-                                        'font-base text-sm shadow-sm text-neutral-700 dark:bg-neutral-800 dark:text-white'
-                                    }`}
-                                >
+                                <>
+                                    <Link
+                                        href="/"
+                                        className={`h-full relative flex items-center whitespace-nowrap rounded-md  verticalMenuFormat  ${
+                                            'font-base text-sm shadow-sm text-neutral-700 dark:bg-neutral-800 dark:text-white'
+                                        }`}
+                                    >
+                                        <div
+                                            className="w-full relative font-base text-sm py-1.5 px-4 pt-3 pb-4 pl-6 flex flex-row items-center space-x-2 rounded-t-md duration-100 bg-white/60 p-3">
+                                            <FontAwesomeIcon icon={faBookmark} size='lg' className="text-red-700 pl-1"/>
+                                            <span className="text-zinc-950 font-semibold pl-1">Bookmarks</span>
+                                        </div>
+                                    </Link>
                                     <div
-                                        className="w-full relative font-base text-sm py-1.5 px-4 pt-3 pb-4 pl-6 flex flex-row items-center space-x-2 rounded-md duration-100 bg-white/60 p-3">
-                                        <FontAwesomeIcon icon={faBookmark} size='lg' className="text-red-700 pl-1" />
-                                        <span className="text-zinc-950 font-semibold pl-1">Bookmarks</span>
+                                        className="w-full relative font-base text-sm py-1.5 px-4  pb-4 pl-6 flex flex-row items-center space-x-2 duration-100 bg-white/60 p-3">
+                                            <div className="pl-7">Upcoming Events</div>
+                                            <div className="rounded-md text-gray-700 bg-gray-200 pl-2 pr-2" style={{border: "thin solid silver"}}>93</div>
                                     </div>
-                                </Link>
+                                </>
+
                             ) : (
 
                                 <Link
@@ -170,7 +176,7 @@ export default function SideNav() {
                                         'font-base text-sm  bg-white/60 text-neutral-700 dark:bg-neutral-800 dark:text-white rounded-md'
                                     }`}
                                 >
-                                    <div
+                                <div
                                         className="relative font-base text-sm flex flex-row items-center space-x-2 duration-100 mx-auto  pb-4 pt-4 rounded-md text-red-700 bg-true-gray-900/20">
                                         <FontAwesomeIcon icon={faBookmark} size='lg' className="text-red-700" />
                                     </div>
@@ -190,7 +196,7 @@ export default function SideNav() {
 
                     {/* Bottom */}
                     <div
-                        className="sticky bottom-0  mt-auto whitespace-nowrap mb-2 transition duration-200 block rounded-md  bg-white/60">
+                        className="sticky bottom-0  mt-auto whitespace-nowrap mb-2 transition duration-200 block rounded-md  bg-white/60" key="58">
                         {navItems.map((item, idx) => {
                             if (item.position === 'bottom') {
                                 return (
