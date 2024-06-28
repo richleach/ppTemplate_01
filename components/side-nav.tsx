@@ -3,13 +3,8 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import Link from 'next/link';
 
-import {
-    Bookmark,
-    Search
-} from 'lucide-react';
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGridRound2Plus, faBookmark, faChevronRight, faMagnifyingGlass } from "@fortawesome/pro-solid-svg-icons";
+import { faGridRound2Plus, faBookmark, faChevronRight, faMagnifyingGlass, faHouse, faHandshake, faClipboardCheck, faChartMixedUpCircleDollar, faCalendarDay } from "@fortawesome/pro-solid-svg-icons";
 import { Input } from "@/components/ui/input"
 
 import { NavItems } from '@/app/config';
@@ -48,155 +43,187 @@ export default function SideNav() {
                     {/* Top */}
                     {/*left nav button container*/}
                     {/*Search*/}
-                    <div className="mt-2 relative pb-0 rounded-md" key="56">
-                        <div className="flex flex-col bg-transparent">
-                            {isSidebarExpanded ? (
-                                <Link
-                                    href="/"
-                                    className={`h-full relative flex items-center whitespace-nowrap rounded-md  verticalMenuFormat  ${
-                                        'font-base text-sm shadow-sm text-neutral-700 dark:bg-neutral-800 dark:text-white rounded-md'
-                                    }`}
-                                >
-                                    <div
-                                        className="relative font-base text-sm py-1.5 px-2 flex flex-row items-center space-x-2 rounded-md duration-100 text-white/70 bg-neutral-800/20 w-full">
-                                        <FontAwesomeIcon icon={faMagnifyingGlass} size='lg' />
-                                        <Input type="text" placeholder="Search for anything...." className="h-6 text-zinc-600 border-0" />
-                                    </div>
-                                </Link>
-                            ) : (
 
-                                <Link
-                                    href="/"
-                                    className={`h-full relative flex items-center whitespace-nowrap rounded-md verticalMenuFormat ${
-                                        'font-base text-sm  bg-neutral-800/20 text-neutral-700 dark:bg-neutral-800 dark:text-white rounded-md'
-                                    }`}
-                                >
-                                    <div
-                                        className="relative font-base text-sm flex flex-row items-center space-x-2 duration-100 mx-auto pb-2 pt-2 rounded-md text-white/70 ">
-                                        <FontAwesomeIcon icon={faMagnifyingGlass} size='lg' />
-                                    </div>
-                                </Link>
-                            )}
-                        </div>
-                    </div>
 
-                    {/*Quick Actions*/}
-                    <div className="mt-1 relative pb-2 rounded-md" key="55">
-                        <div className="flex flex-col bg-transparent">
-                            {isSidebarExpanded ? (
-                                <Link
-                                    href="/"
-                                    className={`h-full relative flex items-center whitespace-nowrap rounded-md -mb-1 verticalMenuFormat  ${
-                                        'font-base text-sm shadow-sm text-neutral-700 dark:bg-neutral-800 dark:text-white'
-                                    }`}
-                                >
-                                    <div
-                                        className="w-full relative font-base text-sm py-1.5  px-4 pt-4 pb-4  flex flex-row items-center space-x-2 rounded-md duration-0 bg-white/60">
-                                        <span style={{color: "#71857a", paddingLeft: "10px"}}>
-                                            <FontAwesomeIcon icon={faGridRound2Plus} size='xl'/></span>
-                                        <span className="font-semibold">Quick Actions</span>
-                                    </div>
-                                </Link>
-                                ) : (
-
-                                <Link
-                                    href="/"
-                                    className={`h-full relative flex items-center whitespace-nowrap rounded-md -mb-1 verticalMenuFormat ${
-                                        'font-base text-sm  bg-white/60 text-neutral-500 dark:bg-neutral-800 dark:text-white rounded-md -mb-1'
-                                    }`}
-                                >
-                                    <div
-                                        className="relative font-base text-sm flex flex-row items-center space-x-2 duration-0 mx-auto  pb-4 pt-4 rounded-md">
-                                        {/*<FontAwesomeIcon icon={faThumbsUp} />*/}
-                                        <FontAwesomeIcon icon={faGridRound2Plus} size='xl' transform="left-1" className="pt-0.5"/>
-                                    </div>
-                                </Link>
-
-                            )}
-                        </div>
-                    </div>
-
-                    {/*the dynamic part of the menu here*/}
-                    <div className=" relative pb-1 rounded-md" key="59">
-                        <div className="flex flex-col bg-transparent" key="60">
-
-                            {navItems.map((item, idx) => {
-                                if (item.position === 'top') {
-                                    return (
-                                            <div key={idx} className="bg-white/60 sideNavItem">
-                                                <div className={`${isSidebarExpanded ? 'flex' : ''}`}>
-                                                    <SideNavItem
-                                                        label={item.name}
-                                                        icon={item.icon}
-                                                        path={item.href}
-                                                        active={item.active}
-                                                        isSidebarExpanded={isSidebarExpanded}
-                                                    />
-                                                    {isSidebarExpanded &&
-                                                    <span style={{marginLeft: "auto", color:"#71857a", paddingRight:"10px"}}><FontAwesomeIcon icon={faChevronRight} size='sm' transform="shrink-3"/></span>
-                                                    }
-                                                </div>
-                                            </div>
-                                    );
-                                }
-                            })}
-
-                        </div>
-                    </div>
-
-                    {/*Bookmarks*/}
-                    <div className="relative pb-0 rounded-md" key="57">
-                        <div className="flex flex-col bg-transparent">
-                            {isSidebarExpanded ? (
-                                <>
-                                    <Link
-                                        href="/"
-                                        className={`h-full relative flex items-center whitespace-nowrap rounded-md  verticalMenuFormat  ${
-                                            'font-base text-sm shadow-sm text-neutral-700 dark:bg-neutral-800 dark:text-white'
-                                        }`}
-                                    >
-                                        <div
-                                            className="w-full relative font-base text-sm py-1.5 px-4 pt-3 pb-4 pl-6 flex flex-row items-center space-x-2 rounded-t-md duration-100 bg-white/60 p-3">
-                                            <FontAwesomeIcon icon={faBookmark} size='lg' className="text-red-700 pl-1"/>
-                                            <span className="text-zinc-950 font-semibold pl-1">Bookmarks</span>
-                                        </div>
-                                    </Link>
-                                    <div
-                                        className="w-full relative font-base text-sm py-1.5 px-4  pb-4 pl-6 flex flex-row items-center space-x-2 duration-100 bg-white/60 p-3">
-                                            <div className="pl-7">Upcoming Events</div>
-                                            <div className="rounded-md text-gray-700 bg-gray-200 pl-2 pr-2" style={{border: "thin solid silver"}}>93</div>
-                                    </div>
-                                </>
-
-                            ) : (
-
-                                <Link
-                                    href="/"
-                                    className={`h-full relative flex items-center whitespace-nowrap verticalMenuFormat ${
-                                        'font-base text-sm  bg-white/60 text-neutral-700 dark:bg-neutral-800 dark:text-white rounded-md'
-                                    }`}
-                                >
+                    {/*new left nav*/}
+                    {/*SEARCH*/}
+                    <div className="mt-2 relative pb-0 rounded-md" key="40">
+                        <div className="flex items-center justify-center bg-transparent">
+                            <Link
+                                href="/"
+                                className="w-full">
                                 <div
-                                        className="relative font-base text-sm flex flex-row items-center space-x-2 duration-100 mx-auto  pb-4 pt-4 rounded-md text-red-700 bg-true-gray-900/20">
-                                        <FontAwesomeIcon icon={faBookmark} size='lg' className="text-red-700" />
+                                    className="flex flex-row items-center rounded-md duration-0 mx-auto bg-neutral-800/20 text-white/70 p-3 m-0 w-full relative whitespace-nowrap">
+                                    <FontAwesomeIcon icon={faMagnifyingGlass} size='lg' className="text-white/70"
+                                                     style={{paddingLeft: "4px"}}/>
+                                    <div className={isSidebarExpanded ? (" visible ") : (" invisible ")}>
+                                        <div className="pl-3">
+                                        <Input type="text" placeholder="Search for anything...."
+                                               className="h-5 border-0 text-sm placeholder:text-white/70" style={{backgroundColor:"#c9a4b4", color: "efe4e9", paddingLeft:"-4px"}}/>
+                                        </div>
                                     </div>
-                                </Link>
-
-                            )}
+                                </div>
+                            </Link>
                         </div>
                     </div>
 
+                    {/*QUICK ACTIONS*/}
+                    <div className="mt-1 relative pb-0 rounded-md" key="20">
+                        <div className="flex items-center justify-center bg-transparent">
+                            <Link
+                                href="/"
+                                className="w-full">
+                                <div
+                                    className="flex flex-row items-center rounded-md duration-0 mx-auto bg-white/60 p-3 m-0 w-full relative whitespace-nowrap">
+                                    <FontAwesomeIcon icon={faGridRound2Plus} size='lg'
+                                                     style={{color: "#71857a", paddingLeft: "4px"}}/>
+                                    <div className={isSidebarExpanded ? (" visible ") : (" invisible ")}>
+                                        <span className="font-semibold pl-5">Quick Actions</span>
+                                    </div>
+                                </div>
+
+                            </Link>
+                        </div>
+                    </div>
+
+                    {/*MAIN STACK*/}
+                    {/*HOME*/}
+                    <div className="mt-1 relative pb-0 rounded-md" key="21">
+                        <div className="flex items-center justify-center bg-transparent">
+                            <Link
+                                href="/"
+                                className="w-full">
+                                <div
+                                    className="flex flex-row items-center rounded-t-md duration-0 mx-auto bg-white/60 p-3 m-0 w-full relative whitespace-nowrap">
+                                    <div>
+                                        <FontAwesomeIcon icon={faHouse} size='lg'
+                                                         style={{color: "#71857a", paddingLeft: "3px"}}/>
+                                    </div>
+
+                                    <div className={isSidebarExpanded ? (" visible ") : (" invisible ")}>
+                                        <span className="font-semibold pl-4">Home</span>
+                                    </div>
+                                </div>
+
+                            </Link>
+                        </div>
+
+                        {/*LEADS & EVENTS*/}
+                        <div className="flex items-center justify-center bg-transparent">
+                            <Link
+                                href="/"
+                                className="w-full">
+                                <div
+                                    className="flex flex-row items-center duration-0 mx-auto bg-white/60 p-3 -mt-0 w-full relative whitespace-nowrap">
+                                    <FontAwesomeIcon icon={faHandshake} size='lg'
+                                                     style={{color: "#71857a", paddingLeft: "2px"}}/>
+                                    <div className={isSidebarExpanded ? (" visible ") : (" invisible ")}>
+                                        <span className="font-semibold pl-4">Leads & Events</span>
+                                    </div>
+                                </div>
+
+                            </Link>
+                        </div>
+
+                        {/*FINANCIALS*/}
+                        <div className="flex items-center justify-center bg-transparent">
+                            <Link
+                                href="/"
+                                className="w-full">
+                                <div
+                                    className="flex flex-row items-start duration-0 mx-auto bg-white/60 p-3 -mt-0 w-full relative whitespace-nowrap">
+                                    <FontAwesomeIcon icon={faChartMixedUpCircleDollar} size='lg'
+                                                     style={{color: "#71857a", paddingLeft: "3px"}}/>
+                                    <div className={isSidebarExpanded ? (" visible align-top ") : (" invisible ")}>
+                                        <span className="font-semibold pl-4">Financials</span><br/>
+                                        {isSidebarExpanded &&
+                                            <>
+                                                <span className="pl-4">Proposals</span><br/>
+                                                <span className="pl-4">Invoices</span><br/>
+                                                <span className="pl-4">Proposals</span><br/>
+                                                <span className="pl-4">Invoices</span><br/>
+                                                <span className="pl-4">Proposals</span><br/>
+                                                <span className="pl-4">Invoices</span><br/>
+                                            </>
+                                        }
 
 
+                                    </div>
+                                </div>
 
+                            </Link>
+                        </div>
 
+                        {/*PRODUCTIVITY*/}
+                        <div className="flex items-center justify-center bg-transparent">
+                            <Link
+                                href="/"
+                                className="w-full">
+                                <div
+                                    className="flex flex-row items-center duration-0 mx-auto bg-white/60 p-3 -mt-0 w-full relative whitespace-nowrap">
+                                    <FontAwesomeIcon icon={faClipboardCheck} size='lg'
+                                                     style={{color: "#71857a", paddingLeft: "6px"}}/>
+                                    <div className={isSidebarExpanded ? (" visible ") : (" invisible ")}>
+                                        <span className="font-semibold pl-5">Productivity</span>
+                                    </div>
+                                </div>
+
+                            </Link>
+                        </div>
+
+                        {/*CALENDAR*/}
+                        <div className="flex items-center justify-center bg-transparent">
+                            <Link
+                                href="/"
+                                className="w-full">
+                                <div
+                                    className="flex flex-row items-center rounded-b-md duration-0 mx-auto bg-white/60 p-3 -mt-0 w-full relative whitespace-nowrap">
+                                    <FontAwesomeIcon icon={faCalendarDay} size='lg'
+                                                     style={{color: "#71857a", paddingLeft: "5px"}}/>
+                                    <div className={isSidebarExpanded ? (" visible ") : (" invisible ")}>
+                                        <span className="font-semibold pl-5">Calendar</span>
+                                    </div>
+                                </div>
+
+                            </Link>
+                        </div>
+                    </div>
+
+                    {/*BOOKMARKS*/}
+                    <div className="mt-1 relative pb-0 rounded-md" key="24">
+                        <div className="flex items-center justify-center bg-transparent">
+                            <Link
+                                href="/"
+                                className="w-full">
+                                <div
+                                    className="flex flex-row items-start rounded-md duration-0 content-start bg-white/60 p-3 w-full relative whitespace-nowrap">
+                                    <FontAwesomeIcon icon={faBookmark} size='lg'
+                                                     style={{color: "#c80000", paddingLeft: "5px", paddingTop:"2px"}}/>
+                                    <div className={isSidebarExpanded ? (" visible ") : (" invisible ")}>
+                                        <span className="font-semibold pl-6">Bookmarks</span><br />
+                                        {isSidebarExpanded &&
+                                            <>
+                                                <span className="pl-4">Upcoming Events</span><br/>
+                                                <span className="pl-4">Proposals Due</span><br/>
+                                                <span className="pl-4">Invoices Due</span><br/>
+
+                                            </>
+                                        }
+                                    </div>
+
+                                </div>
+
+                            </Link>
+                        </div>
+                    </div>
 
 
 
 
                     {/* Bottom */}
                     <div
-                        className="sticky bottom-0  mt-auto whitespace-nowrap mb-2 transition duration-200 block rounded-md  bg-white/60" key="58">
+                        className="sticky bottom-0  mt-auto whitespace-nowrap mb-2 transition duration-200 block rounded-md  bg-white/60"
+                        key="58">
                         {navItems.map((item, idx) => {
                             if (item.position === 'bottom') {
                                 return (
@@ -240,7 +267,7 @@ export const SideNavItem: React.FC<{
     path: string;
     active: boolean;
     isSidebarExpanded: boolean;
-}> = ({ label, icon, path, active, isSidebarExpanded }) => {
+}> = ({label, icon, path, active, isSidebarExpanded}) => {
     return (
         <>
             {isSidebarExpanded ? (
@@ -267,7 +294,7 @@ export const SideNavItem: React.FC<{
                             : 'hover:bg-neutral-200 hover:text-neutral-700 text-neutral-500 dark:text-neutral-400 dark:hover:bg-neutral-800 dark:hover:text-white'
                     }`}
                 >
-                    <div className="relative font-base text-sm pt-1.5 flex flex-row items-center space-x-2 duration-100 mx-auto">
+                    <div className="relative font-base text-sm flex flex-row items-center space-x-2 duration-100 mx-auto" style={{paddingTop:"5px"}}>
                         {icon}
                     </div>
                 </Link>
