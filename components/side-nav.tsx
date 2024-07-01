@@ -4,7 +4,7 @@ import React, { Fragment, useEffect, useState } from 'react';
 import Link from 'next/link';
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGridRound2Plus, faBookmark, faChevronRight, faMagnifyingGlass, faHouse, faHandshake, faClipboardCheck, faChartMixedUpCircleDollar, faCalendarDay } from "@fortawesome/pro-solid-svg-icons";
+import { faGridRound2Plus, faBookmark, faChevronRight, faChevronDown, faMagnifyingGlass, faHouse, faHandshake, faClipboardCheck, faChartMixedUpCircleDollar, faCalendarDay } from "@fortawesome/pro-solid-svg-icons";
 import { Input } from "@/components/ui/input"
 
 import { NavItems } from '@/app/config';
@@ -15,6 +15,27 @@ export default function SideNav() {
     const navItems = NavItems();
 
     const [isSidebarExpanded, setIsSidebarExpanded] = useState<boolean>(false);
+    const [isLnaExpanded, setIsLnaExpanded ] = useState(false);
+    const [isFinExpanded, setIsFinExpanded ] = useState(false);
+    const [isProdExpanded, setIsProdExpanded ] = useState(false);
+    const [isQaExpanded, setIsQaExpanded ] = useState(false);
+    const [isBookExpanded, setIsBookExpanded ] = useState(false);
+
+    const handleBookClick = () => {
+        setIsBookExpanded(!isBookExpanded);
+    };
+    const handleQaClick = () => {
+        setIsQaExpanded(!isQaExpanded);
+    };
+    const handleProdClick = () => {
+        setIsProdExpanded(!isProdExpanded);
+    };
+    const handleLnaClick = () => {
+        setIsLnaExpanded(!isLnaExpanded);
+    };
+    const handleFinancialsClick = () => {
+        setIsFinExpanded(!isFinExpanded);
+    };
 
     // Toggle the sidebar state
     const toggleSidebar = () => {
@@ -58,8 +79,12 @@ export default function SideNav() {
                                                      style={{paddingLeft: "4px"}}/>
                                     <div className={isSidebarExpanded ? (" visible ") : (" invisible ")}>
                                         <div className="pl-3">
-                                        <Input type="text" placeholder="Search for anything...."
-                                               className="h-5 border-0 text-sm placeholder:text-white/70" style={{backgroundColor:"#c9a4b4", color: "efe4e9", paddingLeft:"-4px"}}/>
+                                            <Input type="text" placeholder="Search for anything...."
+                                                   className="h-5 border-0 text-sm placeholder:text-white/70" style={{
+                                                backgroundColor: "#c9a4b4",
+                                                color: "efe4e9",
+                                                paddingLeft: "-4px"
+                                            }}/>
                                         </div>
                                     </div>
                                 </div>
@@ -68,22 +93,88 @@ export default function SideNav() {
                     </div>
 
                     {/*QUICK ACTIONS*/}
-                    <div className="mt-1 relative pb-0 rounded-md" key="20">
-                        <div className="flex items-center justify-center bg-transparent">
-                            <Link
-                                href="/"
-                                className="w-full">
+                    <div className="mt-1 rounded-md flex items-center justify-center bg-transparent">
+                        <Link
+                            href="/"
+                            className="w-full">
+                            <div
+                                className="flex flex-row items-start rounded-md duration-0 mx-auto bg-white/60 p-3 -mt-0 w-full relative whitespace-nowrap">
+                                <FontAwesomeIcon icon={faGridRound2Plus} size='lg'
+                                                 style={{color: "#71857a", paddingLeft: "4px"}}/>
                                 <div
-                                    className="flex flex-row items-center rounded-md duration-0 mx-auto bg-white/60 p-3 m-0 w-full relative whitespace-nowrap">
-                                    <FontAwesomeIcon icon={faGridRound2Plus} size='lg'
-                                                     style={{color: "#71857a", paddingLeft: "4px"}}/>
-                                    <div className={isSidebarExpanded ? (" visible ") : (" invisible ")}>
-                                        <span className="font-semibold pl-5">Quick Actions</span>
-                                    </div>
-                                </div>
+                                    className={isSidebarExpanded ? (" visible align-top w-full") : (" invisible ")}>
 
-                            </Link>
-                        </div>
+
+                                    <div className="flex justify-between w-full">
+                                        <div className="font-semibold pl-4"
+                                             onClick={handleQaClick}>Quick Actions
+                                        </div>
+                                        <div className="ml-auto pr-2">
+                                            <FontAwesomeIcon icon={faChevronRight} size='sm'
+                                                             style={{color: "#71857a"}}
+                                                             className={!isQaExpanded ? (" visible ") : (" invisible ")}
+                                                             onClick={handleQaClick}/>
+                                            <FontAwesomeIcon icon={faChevronDown} size='sm'
+                                                             style={{color: "#71857a"}}
+                                                             className={isQaExpanded ? (" visible pr-2 ") : (" invisible ")}
+                                                             onClick={handleQaClick}/>
+                                        </div>
+                                    </div>
+
+
+                                    <div>
+                                        {!isSidebarExpanded ? (
+                                            isQaExpanded ? (
+                                                <div className="border-l border-gray-500 visible -ml-3 mt-3">
+                                                    <div className="flex">
+                                                        <div
+                                                            className="pl-4 mr-3 w-1/5">&nbsp;</div>
+                                                        <div className="w-3/5">Invoices</div>
+                                                        <div className="w/1/5">33</div>
+                                                    </div>
+                                                    <div className="flex">
+                                                        <div
+                                                            className="pl-4 mr-3 w-1/5">&nbsp;</div>
+                                                        <div className="w-3/5">Proposals</div>
+                                                        <div className="w/1/5 ml-auto">22</div>
+                                                    </div>
+                                                </div>
+                                            ) : (
+                                                <div style={{display: "none"}}>
+
+                                                </div>
+                                            )
+                                        ) : (
+                                            isQaExpanded ? (
+                                                <div className="visible pt-1">
+                                                    <div className="flex pt-1">
+                                                        <div className="w-4/5 pl-4">Invoices</div>
+                                                        <div className="w/1/5 pl-1">
+                                                            <div
+                                                                className="rounded-lg  bg-gray-200 text-gray-500 -pt-2 -pb-2 pl-1 pr-1">33
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div className="flex pt-1">
+                                                        <div className="w-4/5 pl-4">Proposals</div>
+                                                        <div className="w/1/5 pl-1">
+                                                            <div
+                                                                className="rounded-lg  bg-gray-200 text-gray-500 -pt-2 -pb-2 pl-1 pr-1">22
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            ) : (
+                                                ' '
+                                            )
+                                        )}
+                                    </div>
+
+
+                                </div>
+                            </div>
+
+                        </Link>
                     </div>
 
                     {/*MAIN STACK*/}
@@ -114,11 +205,79 @@ export default function SideNav() {
                                 href="/"
                                 className="w-full">
                                 <div
-                                    className="flex flex-row items-center duration-0 mx-auto bg-white/60 p-3 -mt-0 w-full relative whitespace-nowrap">
+                                    className="flex flex-row items-start duration-0 mx-auto bg-white/60 p-3 -mt-0 w-full relative whitespace-nowrap">
                                     <FontAwesomeIcon icon={faHandshake} size='lg'
-                                                     style={{color: "#71857a", paddingLeft: "2px"}}/>
-                                    <div className={isSidebarExpanded ? (" visible ") : (" invisible ")}>
-                                        <span className="font-semibold pl-4">Leads & Events</span>
+                                                     style={{color: "#71857a", paddingLeft: "3px"}}/>
+                                    <div
+                                        className={isSidebarExpanded ? (" visible align-top w-full") : (" invisible ")}>
+
+
+                                        <div className="flex justify-between w-full">
+                                            <div className="font-semibold pl-4"
+                                                 onClick={handleLnaClick}>Leads & Events
+                                            </div>
+                                            <div className="ml-auto pr-2">
+                                                <FontAwesomeIcon icon={faChevronRight} size='sm'
+                                                                 style={{color: "#71857a"}}
+                                                                 className={!isLnaExpanded ? (" visible ") : (" invisible ")}
+                                                                 onClick={handleLnaClick}/>
+                                                <FontAwesomeIcon icon={faChevronDown} size='sm'
+                                                                 style={{color: "#71857a"}}
+                                                                 className={isLnaExpanded ? (" visible pr-2 ") : (" invisible ")}
+                                                                 onClick={handleLnaClick}/>
+                                            </div>
+                                        </div>
+
+
+                                        <div>
+                                            {!isSidebarExpanded ? (
+                                                isLnaExpanded ? (
+                                                    <div className="border-l border-gray-500 visible -ml-4 mt-3">
+                                                        <div className="flex">
+                                                            <div
+                                                                className="pl-4 mr-3 w-1/5">&nbsp;</div>
+                                                            <div className="w-3/5">Invoices</div>
+                                                            <div className="w/1/5">33</div>
+                                                        </div>
+                                                        <div className="flex">
+                                                            <div
+                                                                className="pl-4 mr-3 w-1/5">&nbsp;</div>
+                                                            <div className="w-3/5">Proposals</div>
+                                                            <div className="w/1/5 ml-auto">22</div>
+                                                        </div>
+                                                    </div>
+                                                ) : (
+                                                    <div style={{display: "none"}}>
+                                                        ' '
+                                                    </div>
+                                                )
+                                            ) : (
+                                                isLnaExpanded ? (
+                                                    <div className="visible pt-1">
+                                                        <div className="flex pt-1">
+                                                            <div className="w-4/5 pl-4">Invoices</div>
+                                                            <div className="w/1/5 pl-1">
+                                                                <div
+                                                                    className="rounded-lg  bg-gray-200 text-gray-500 -pt-2 -pb-2 pl-1 pr-1">33
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div className="flex pt-1">
+                                                            <div className="w-4/5 pl-4">Proposals</div>
+                                                            <div className="w/1/5 pl-1">
+                                                                <div
+                                                                    className="rounded-lg  bg-gray-200 text-gray-500 -pt-2 -pb-2 pl-1 pr-1">22
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                ) : (
+                                                    ' '
+                                                )
+                                            )}
+                                        </div>
+
+
                                     </div>
                                 </div>
 
@@ -134,18 +293,74 @@ export default function SideNav() {
                                     className="flex flex-row items-start duration-0 mx-auto bg-white/60 p-3 -mt-0 w-full relative whitespace-nowrap">
                                     <FontAwesomeIcon icon={faChartMixedUpCircleDollar} size='lg'
                                                      style={{color: "#71857a", paddingLeft: "3px"}}/>
-                                    <div className={isSidebarExpanded ? (" visible align-top ") : (" invisible ")}>
-                                        <span className="font-semibold pl-4">Financials</span><br/>
-                                        {isSidebarExpanded &&
-                                            <>
-                                                <span className="pl-4">Proposals</span><br/>
-                                                <span className="pl-4">Invoices</span><br/>
-                                                <span className="pl-4">Proposals</span><br/>
-                                                <span className="pl-4">Invoices</span><br/>
-                                                <span className="pl-4">Proposals</span><br/>
-                                                <span className="pl-4">Invoices</span><br/>
-                                            </>
-                                        }
+                                    <div
+                                        className={isSidebarExpanded ? (" visible align-top w-full") : (" invisible ")}>
+
+
+                                        <div className="flex justify-between w-full">
+                                            <div className="font-semibold pl-4"
+                                                 onClick={handleFinancialsClick}>Financials
+                                            </div>
+                                            <div className="ml-auto pr-2">
+                                                <FontAwesomeIcon icon={faChevronRight} size='sm'
+                                                                 style={{color: "#71857a"}}
+                                                                 className={!isFinExpanded ? (" visible ") : (" invisible ")}
+                                                                 onClick={handleFinancialsClick}/>
+                                                <FontAwesomeIcon icon={faChevronDown} size='sm'
+                                                                 style={{color: "#71857a"}}
+                                                                 className={isFinExpanded ? (" visible pr-2 ") : (" invisible ")}
+                                                                 onClick={handleFinancialsClick}/>
+                                            </div>
+                                        </div>
+
+
+                                        <div>
+                                            {!isSidebarExpanded ? (
+                                                isFinExpanded ? (
+                                                    <div className="border-l border-gray-500 visible -ml-4 mt-3">
+                                                        <div className="flex">
+                                                            <div
+                                                                className="pl-4 mr-3 w-1/5">&nbsp;</div>
+                                                            <div className="w-3/5">Invoices</div>
+                                                            <div className="w/1/5">33</div>
+                                                        </div>
+                                                        <div className="flex">
+                                                            <div
+                                                                className="pl-4 mr-3 w-1/5">&nbsp;</div>
+                                                            <div className="w-3/5">Proposals</div>
+                                                            <div className="w/1/5 ml-auto">22</div>
+                                                        </div>
+                                                    </div>
+                                                ) : (
+                                                    <div style={{display: "none"}}>
+                                                        ' '
+                                                    </div>
+                                                )
+                                            ) : (
+                                                isFinExpanded ? (
+                                                    <div className="visible pt-1">
+                                                        <div className="flex pt-1">
+                                                            <div className="w-4/5 pl-4">Invoices</div>
+                                                            <div className="w/1/5 pl-1">
+                                                                <div
+                                                                    className="rounded-lg  bg-gray-200 text-gray-500 -pt-2 -pb-2 pl-1 pr-1">33
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div className="flex pt-1">
+                                                            <div className="w-4/5 pl-4">Proposals</div>
+                                                            <div className="w/1/5 pl-1">
+                                                                <div
+                                                                    className="rounded-lg  bg-gray-200 text-gray-500 -pt-2 -pb-2 pl-1 pr-1">22
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                ) : (
+                                                    ' '
+                                                )
+                                            )}
+                                        </div>
 
 
                                     </div>
@@ -160,11 +375,79 @@ export default function SideNav() {
                                 href="/"
                                 className="w-full">
                                 <div
-                                    className="flex flex-row items-center duration-0 mx-auto bg-white/60 p-3 -mt-0 w-full relative whitespace-nowrap">
+                                    className="flex flex-row items-start duration-0 mx-auto bg-white/60 p-3 -mt-0 w-full relative whitespace-nowrap">
                                     <FontAwesomeIcon icon={faClipboardCheck} size='lg'
                                                      style={{color: "#71857a", paddingLeft: "6px"}}/>
-                                    <div className={isSidebarExpanded ? (" visible ") : (" invisible ")}>
-                                        <span className="font-semibold pl-5">Productivity</span>
+                                    <div
+                                        className={isSidebarExpanded ? (" visible align-top w-full") : (" invisible ")}>
+
+
+                                        <div className="flex justify-between w-full">
+                                            <div className="font-semibold pl-5"
+                                                 onClick={handleProdClick}>Productivity
+                                            </div>
+                                            <div className="ml-auto pr-2">
+                                                <FontAwesomeIcon icon={faChevronRight} size='sm'
+                                                                 style={{color: "#71857a"}}
+                                                                 className={!isProdExpanded ? (" visible ") : (" invisible ")}
+                                                                 onClick={handleProdClick}/>
+                                                <FontAwesomeIcon icon={faChevronDown} size='sm'
+                                                                 style={{color: "#71857a"}}
+                                                                 className={isProdExpanded ? (" visible pr-2 ") : (" invisible ")}
+                                                                 onClick={handleProdClick}/>
+                                            </div>
+                                        </div>
+
+
+                                        <div>
+                                            {!isSidebarExpanded ? (
+                                                isProdExpanded ? (
+                                                    <div className="border-l border-gray-500 visible -ml-2 mt-3">
+                                                        <div className="flex">
+                                                            <div
+                                                                className="pl-4 mr-3 w-1/5">&nbsp;</div>
+                                                            <div className="w-3/5">Invoices</div>
+                                                            <div className="w/1/5">33</div>
+                                                        </div>
+                                                        <div className="flex">
+                                                            <div
+                                                                className="pl-4 mr-3 w-1/5">&nbsp;</div>
+                                                            <div className="w-3/5">Proposals</div>
+                                                            <div className="w/1/5 ml-auto">22</div>
+                                                        </div>
+                                                    </div>
+                                                ) : (
+                                                    <div style={{display: "none"}}>
+                                                        ' '
+                                                    </div>
+                                                )
+                                            ) : (
+                                                isProdExpanded ? (
+                                                    <div className="visible pt-1">
+                                                        <div className="flex pt-1">
+                                                            <div className="w-4/5 pl-5">Invoices</div>
+                                                            <div className="w/1/5 pl-1">
+                                                                <div
+                                                                    className="rounded-lg  bg-gray-200 text-gray-500 -pt-2 -pb-2 pl-1 pr-1">33
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div className="flex pt-1">
+                                                            <div className="w-4/5 pl-5">Proposals</div>
+                                                            <div className="w/1/5 pl-1">
+                                                                <div
+                                                                    className="rounded-lg  bg-gray-200 text-gray-500 -pt-2 -pb-2 pl-1 pr-1">22
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                ) : (
+                                                    ' '
+                                                )
+                                            )}
+                                        </div>
+
+
                                     </div>
                                 </div>
 
@@ -190,34 +473,89 @@ export default function SideNav() {
                     </div>
 
                     {/*BOOKMARKS*/}
-                    <div className="mt-1 relative pb-0 rounded-md" key="24">
-                        <div className="flex items-center justify-center bg-transparent">
-                            <Link
-                                href="/"
-                                className="w-full">
+                    <div className="mt-1 rounded-md flex items-center justify-center bg-transparent">
+                        <Link
+                            href="/"
+                            className="w-full">
+                            <div
+                                className="flex flex-row items-start rounded-md duration-0 mx-auto bg-white/60 p-3 -mt-0 w-full relative whitespace-nowrap">
+                                <FontAwesomeIcon icon={faBookmark} size='lg'
+                                                 style={{color: "#c80000", paddingLeft: "6px", paddingTop: "2px"}}/>
                                 <div
-                                    className="flex flex-row items-start rounded-md duration-0 content-start bg-white/60 p-3 w-full relative whitespace-nowrap">
-                                    <FontAwesomeIcon icon={faBookmark} size='lg'
-                                                     style={{color: "#c80000", paddingLeft: "5px", paddingTop:"2px"}}/>
-                                    <div className={isSidebarExpanded ? (" visible ") : (" invisible ")}>
-                                        <span className="font-semibold pl-6">Bookmarks</span><br />
-                                        {isSidebarExpanded &&
-                                            <>
-                                                <span className="pl-4">Upcoming Events</span><br/>
-                                                <span className="pl-4">Proposals Due</span><br/>
-                                                <span className="pl-4">Invoices Due</span><br/>
+                                    className={isSidebarExpanded ? (" visible align-top w-full") : (" invisible ")}>
 
-                                            </>
-                                        }
+
+                                    <div className="flex justify-between w-full">
+                                        <div className="font-semibold pl-5"
+                                             onClick={handleBookClick}>Bookmarks
+                                        </div>
+                                        <div className="ml-auto pr-2">
+                                            <FontAwesomeIcon icon={faChevronRight} size='sm'
+                                                             style={{color: "#71857a"}}
+                                                             className={!isBookExpanded ? (" visible ") : (" invisible ")}
+                                                             onClick={handleBookClick}/>
+                                            <FontAwesomeIcon icon={faChevronDown} size='sm'
+                                                             style={{color: "#71857a"}}
+                                                             className={isBookExpanded ? (" visible pr-2 ") : (" invisible ")}
+                                                             onClick={handleBookClick}/>
+                                        </div>
                                     </div>
 
+
+                                    <div>
+                                        {!isSidebarExpanded ? (
+                                            isBookExpanded ? (
+                                                <div className="border-l border-gray-500 visible -ml-2 mt-3">
+                                                    <div className="flex">
+                                                        <div
+                                                            className="pl-4 mr-3 w-1/5">&nbsp;</div>
+                                                        <div className="w-3/5">Invoices</div>
+                                                        <div className="w/1/5">33</div>
+                                                    </div>
+                                                    <div className="flex">
+                                                        <div
+                                                            className="pl-4 mr-3 w-1/5">&nbsp;</div>
+                                                        <div className="w-3/5">Proposals</div>
+                                                        <div className="w/1/5 ml-auto">22</div>
+                                                    </div>
+                                                </div>
+                                            ) : (
+                                                <div style={{display: "none"}}>
+
+                                                </div>
+                                            )
+                                        ) : (
+                                            isBookExpanded ? (
+                                                <div className="visible pt-1">
+                                                    <div className="flex pt-1">
+                                                        <div className="w-4/5 pl-5">Invoices</div>
+                                                        <div className="w/1/5 pl-1">
+                                                            <div
+                                                                className="rounded-lg  bg-gray-200 text-gray-500 -pt-2 -pb-2 pl-1 pr-1">33
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div className="flex pt-1">
+                                                        <div className="w-4/5 pl-5">Proposals</div>
+                                                        <div className="w/1/5 pl-1">
+                                                            <div
+                                                                className="rounded-lg  bg-gray-200 text-gray-500 -pt-2 -pb-2 pl-1 pr-1">22
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            ) : (
+                                                ' '
+                                            )
+                                        )}
+                                    </div>
+
+
                                 </div>
+                            </div>
 
-                            </Link>
-                        </div>
+                        </Link>
                     </div>
-
-
 
 
                     {/* Bottom */}
@@ -279,7 +617,8 @@ export const SideNavItem: React.FC<{
                             : ' text-neutral-500 dark:text-neutral-400 dark:hover:bg-neutral-800 dark:hover:text-white'
                     }`}
                 >
-                    <div className="relative ml-4 font-base text-sm flex flex-row items-center space-x-2 rounded-md duration-100">
+                    <div
+                        className="relative ml-4 font-base text-sm flex flex-row items-center space-x-2 rounded-md duration-100">
                         {icon}
                         <span className="text-zinc-950">{label}</span>
                     </div>
@@ -294,7 +633,9 @@ export const SideNavItem: React.FC<{
                             : 'hover:bg-neutral-200 hover:text-neutral-700 text-neutral-500 dark:text-neutral-400 dark:hover:bg-neutral-800 dark:hover:text-white'
                     }`}
                 >
-                    <div className="relative font-base text-sm flex flex-row items-center space-x-2 duration-100 mx-auto" style={{paddingTop:"5px"}}>
+                    <div
+                        className="relative font-base text-sm flex flex-row items-center space-x-2 duration-100 mx-auto"
+                        style={{paddingTop: "5px"}}>
                         {icon}
                     </div>
                 </Link>
