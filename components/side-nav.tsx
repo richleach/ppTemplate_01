@@ -165,7 +165,7 @@ export default function SideNav() {
                                                     </div>
                                                 </div>
                                             ) : (
-                                                <span>&nbsp;</span>
+                                                <> </>
                                             )
                                         )}
                                     </div>
@@ -272,7 +272,7 @@ export default function SideNav() {
                                                         </div>
                                                     </div>
                                                 ) : (
-                                                    <span>&nbsp;</span>
+                                                    <> </>
                                                 )
                                             )}
                                         </div>
@@ -357,7 +357,7 @@ export default function SideNav() {
                                                         </div>
                                                     </div>
                                                 ) : (
-                                                    <span>&nbsp;</span>
+                                                    <> </>
                                                 )
                                             )}
                                         </div>
@@ -442,7 +442,7 @@ export default function SideNav() {
                                                         </div>
                                                     </div>
                                                 ) : (
-                                                    <span>&nbsp;</span>
+                                                    <> </>
                                                 )
                                             )}
                                         </div>
@@ -545,7 +545,7 @@ export default function SideNav() {
                                                     </div>
                                                 </div>
                                             ) : (
-                                                <span>&nbsp;</span>
+                                                <> </>
                                             )
                                         )}
                                     </div>
