@@ -584,34 +584,6 @@ export default function SideNav() {
 
                     {/* Bottom */}
 
-
-                    {/*<div
-                        className="sticky bottom-0  mt-auto whitespace-nowrap mb-2 transition duration-200 block rounded-md  bg-white/60"
-                        key="58">
-                        {navItems.map((item, idx) => {
-                            if (item.position === 'bottom') {
-                                return (
-                                    <Fragment key={idx}>
-                                        <div className="space-y-1">
-                                            <SideNavItem
-                                                label={item.name}
-                                                icon={item.icon}
-                                                path={item.href}
-                                                active={item.active}
-                                                isSidebarExpanded={isSidebarExpanded}
-                                            />
-                                        </div>
-                                    </Fragment>
-                                );
-                            }
-                        })}
-                    </div>
-
-
-*/}
-
-
-
                     <div className="sticky bottom-0 flex mb-2 mt-auto rounded-md bg-white/60 h-14">
                         <div className="mx-auto w-full flex whitespace-nowrap h-14">
                             <img src="/images/steveHeadShot.jpg" height={52} width={52} alt="Steve" className="rounded-md p-1"/>
@@ -626,21 +598,7 @@ export default function SideNav() {
                         }
                     </div>
 
-
                 </aside>
-                {/* <div className="mt-[calc(calc(90vh)-40px)] relative">
-                    <button
-                        type="button"
-                        className="absolute bottom-32 right-[-12px] flex h-6 w-6 items-center justify-center rounded-full bg-neutral-100 shadow-md hover:shadow-lg transition-shadow duration-300 ease-in-out"
-                        onClick={toggleSidebar}
-                    >
-                        {isSidebarExpanded ? (
-                            <ChevronLeft size={16} />
-                        ) : (
-                            <ChevronRight size={16} />
-                        )}
-                    </button>
-                </div>*/}
             </div>
         </div>
     );
