@@ -106,7 +106,7 @@ export default function SideNav() {
                             <div
                                 className="flex flex-row items-start rounded-md duration-0 mx-auto bg-white/60 p-3 -mt-0 w-full relative whitespace-nowrap">
                                 <FontAwesomeIcon icon={faGridRound2Plus} size='lg'
-                                                 style={{color: "#71857a", paddingLeft: "6px", paddingTop: "2px"}}/>
+                                                 style={{color: "#71857a", paddingLeft: "5px", paddingTop: "2px"}}/>
                                 <div
                                     className={isSidebarExpanded ? (" visible align-top w-full") : (" invisible ")}>
 
@@ -131,7 +131,7 @@ export default function SideNav() {
                                     <div>
                                         {!isSidebarExpanded ? (
                                             isQaExpanded ? (
-                                                <div className="border-l border-gray-500 visible -ml-2 mt-3">
+                                                <div className="border-l border-gray-500 visible -ml-3 mt-3">
                                                     <div className="flex">
                                                         <div
                                                             className="pl-4 mr-3 w-1/5">&nbsp;</div>
