@@ -4,7 +4,7 @@ import React, { Fragment, useEffect, useState } from 'react';
 import Link from 'next/link';
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGridRound2Plus, faBookmark, faChevronRight, faChevronDown, faMagnifyingGlass, faHouse, faHandshake, faClipboardCheck, faChartMixedUpCircleDollar, faCalendarDay } from "@fortawesome/pro-solid-svg-icons";
+import { faGridRound2Plus, faBookmark, faChevronRight, faChevronDown, faMagnifyingGlass, faHouse, faHandshake, faClipboardCheck, faChartMixedUpCircleDollar, faCalendarDay, faArrowUpRightFromSquare } from "@fortawesome/pro-solid-svg-icons";
 import { Input } from "@/components/ui/input"
 
 import { NavItems } from '@/app/config';
@@ -20,7 +20,11 @@ export default function SideNav() {
     const [isProdExpanded, setIsProdExpanded ] = useState(false);
     const [isQaExpanded, setIsQaExpanded ] = useState(false);
     const [isBookExpanded, setIsBookExpanded ] = useState(false);
+    const [isCalendarExpanded, setIsCalendarExpanded] = useState(false);
 
+    const handleCalendarClick = () => {
+        setIsCalendarExpanded(!isCalendarExpanded);
+    };
     const handleBookClick = () => {
         setIsBookExpanded(!isBookExpanded);
     };
@@ -79,12 +83,13 @@ export default function SideNav() {
                                                      style={{paddingLeft: "4px"}}/>
                                     <div className={isSidebarExpanded ? (" visible ") : (" invisible ")}>
                                         <div className="pl-3">
-                                            <Input type="text" placeholder="Search for anything...."
-                                                   className="h-5 border-0 text-sm placeholder:text-white/70" style={{
+                                            <input type="text" placeholder="Search for anything...." className="bg-transparent placeholder:text-white/70  outline:none focus:outline-none  -pl-4"/>
+                                            {/*<Input type="text" placeholder="Search for anything...."
+                                                   className="h-5 border-0 text-sm placeholder:text-white/70 focus-visible:none" style={{
                                                 backgroundColor: "#c9a4b4",
                                                 color: "efe4e9",
                                                 paddingLeft: "-4px"
-                                            }}/>
+                                            }}/>*/}
                                         </div>
                                     </div>
                                 </div>
@@ -100,7 +105,7 @@ export default function SideNav() {
                             <div
                                 className="flex flex-row items-start rounded-md duration-0 mx-auto bg-white/60 p-3 -mt-0 w-full relative whitespace-nowrap">
                                 <FontAwesomeIcon icon={faGridRound2Plus} size='lg'
-                                                 style={{color: "#71857a", paddingLeft: "4px"}}/>
+                                                 style={{color: "#71857a", paddingLeft: "5px"}} fixedWidth/>
                                 <div
                                     className={isSidebarExpanded ? (" visible align-top w-full") : (" invisible ")}>
 
@@ -148,18 +153,18 @@ export default function SideNav() {
                                             isQaExpanded ? (
                                                 <div className="visible pt-1">
                                                     <div className="flex pt-1">
-                                                        <div className="w-4/5 pl-4">Invoices</div>
+                                                        <div className="w-4/5 pl-5">Invoices</div>
                                                         <div className="w/1/5 pl-1">
                                                             <div
-                                                                className="rounded-lg  bg-gray-200 text-gray-500 -pt-2 -pb-2 pl-1 pr-1">33
+                                                                className="rounded-xl bg-slate-200 text-gray-500  -pt-1 -pb-1 pl-2 pr-2 text-sm">14
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <div className="flex pt-1">
-                                                        <div className="w-4/5 pl-4">Proposals</div>
+                                                        <div className="w-4/5 pl-5">Proposals</div>
                                                         <div className="w/1/5 pl-1">
                                                             <div
-                                                                className="rounded-lg  bg-gray-200 text-gray-500 -pt-2 -pb-2 pl-1 pr-1">22
+                                                                className="rounded-xl bg-slate-200 text-gray-500  -pt-1 -pb-1 pl-2 pr-2 text-sm">17
                                                             </div>
                                                         </div>
                                                     </div>
@@ -188,7 +193,7 @@ export default function SideNav() {
                                     className="flex flex-row items-center rounded-t-md duration-0 mx-auto bg-white/60 p-3 m-0 w-full relative whitespace-nowrap">
                                     <div>
                                         <FontAwesomeIcon icon={faHouse} size='lg'
-                                                         style={{color: "#71857a", paddingLeft: "3px"}}/>
+                                                         style={{color: "#71857a", paddingLeft: "1px"}} fixedWidth/>
                                     </div>
 
                                     <div className={isSidebarExpanded ? (" visible ") : (" invisible ")}>
@@ -207,13 +212,13 @@ export default function SideNav() {
                                 <div
                                     className="flex flex-row items-start duration-0 mx-auto bg-white/60 p-3 -mt-0 w-full relative whitespace-nowrap">
                                     <FontAwesomeIcon icon={faHandshake} size='lg'
-                                                     style={{color: "#71857a", paddingLeft: "3px"}}/>
+                                                     style={{color: "#71857a", paddingLeft: "0px"}} fixedWidth border/>
                                     <div
                                         className={isSidebarExpanded ? (" visible align-top w-full") : (" invisible ")}>
 
 
                                         <div className="flex justify-between w-full">
-                                            <div className="font-semibold pl-4"
+                                            <div className="font-semibold pl-2"
                                                  onClick={handleLnaClick}>Leads & Events
                                             </div>
                                             <div className="ml-auto pr-2">
@@ -232,7 +237,7 @@ export default function SideNav() {
                                         <div>
                                             {!isSidebarExpanded ? (
                                                 isLnaExpanded ? (
-                                                    <div className="border-l border-gray-500 visible -ml-4 mt-3">
+                                                    <div className="border-l border-gray-500 visible -ml-5 mt-3">
                                                         <div className="flex">
                                                             <div
                                                                 className="pl-4 mr-3 w-1/5">&nbsp;</div>
@@ -255,18 +260,18 @@ export default function SideNav() {
                                                 isLnaExpanded ? (
                                                     <div className="visible pt-1">
                                                         <div className="flex pt-1">
-                                                            <div className="w-4/5 pl-4">Invoices</div>
+                                                            <div className="w-4/5 pl-3">Invoices</div>
                                                             <div className="w/1/5 pl-1">
                                                                 <div
-                                                                    className="rounded-lg  bg-gray-200 text-gray-500 -pt-2 -pb-2 pl-1 pr-1">33
+                                                                    className="rounded-xl bg-slate-200 text-gray-500  -pt-1 -pb-1 pl-2 pr-2 text-sm">99
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div className="flex pt-1">
-                                                            <div className="w-4/5 pl-4">Proposals</div>
+                                                            <div className="w-4/5 pl-3">Proposals</div>
                                                             <div className="w/1/5 pl-1">
                                                                 <div
-                                                                    className="rounded-lg  bg-gray-200 text-gray-500 -pt-2 -pb-2 pl-1 pr-1">22
+                                                                    className="rounded-xl bg-slate-200 text-gray-500  -pt-1 -pb-1 pl-2 pr-2 text-sm">51
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -317,7 +322,7 @@ export default function SideNav() {
                                         <div>
                                             {!isSidebarExpanded ? (
                                                 isFinExpanded ? (
-                                                    <div className="border-l border-gray-500 visible -ml-4 mt-3">
+                                                    <div className="border-l border-gray-500 visible -ml-3 mt-3">
                                                         <div className="flex">
                                                             <div
                                                                 className="pl-4 mr-3 w-1/5">&nbsp;</div>
@@ -340,18 +345,18 @@ export default function SideNav() {
                                                 isFinExpanded ? (
                                                     <div className="visible pt-1">
                                                         <div className="flex pt-1">
-                                                            <div className="w-4/5 pl-4">Invoices</div>
+                                                            <div className="w-4/5 pl-5">Invoices</div>
                                                             <div className="w/1/5 pl-1">
                                                                 <div
-                                                                    className="rounded-lg  bg-gray-200 text-gray-500 -pt-2 -pb-2 pl-1 pr-1">33
+                                                                    className="rounded-xl bg-slate-200 text-gray-500  -pt-1 -pb-1 pl-2 pr-2 text-sm">39
                                                                 </div>
                                                             </div>
                                                         </div>
                                                         <div className="flex pt-1">
-                                                            <div className="w-4/5 pl-4">Proposals</div>
+                                                            <div className="w-4/5 pl-5">Proposals</div>
                                                             <div className="w/1/5 pl-1">
                                                                 <div
-                                                                    className="rounded-lg  bg-gray-200 text-gray-500 -pt-2 -pb-2 pl-1 pr-1">22
+                                                                    className="rounded-xl bg-slate-200 text-gray-500  -pt-1 -pb-1 pl-2 pr-2 text-sm">17
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -428,7 +433,7 @@ export default function SideNav() {
                                                             <div className="w-4/5 pl-5">Invoices</div>
                                                             <div className="w/1/5 pl-1">
                                                                 <div
-                                                                    className="rounded-lg  bg-gray-200 text-gray-500 -pt-2 -pb-2 pl-1 pr-1">33
+                                                                    className="rounded-xl bg-slate-200 text-gray-500  -pt-1 -pb-1 pl-2 pr-2 text-sm">23
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -436,7 +441,7 @@ export default function SideNav() {
                                                             <div className="w-4/5 pl-5">Proposals</div>
                                                             <div className="w/1/5 pl-1">
                                                                 <div
-                                                                    className="rounded-lg  bg-gray-200 text-gray-500 -pt-2 -pb-2 pl-1 pr-1">22
+                                                                    className="rounded-xl bg-slate-200 text-gray-500  -pt-1 -pb-1 pl-2 pr-2 text-sm">18
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -460,16 +465,31 @@ export default function SideNav() {
                                 href="/"
                                 className="w-full">
                                 <div
-                                    className="flex flex-row items-center rounded-b-md duration-0 mx-auto bg-white/60 p-3 -mt-0 w-full relative whitespace-nowrap">
+                                    className="flex flex-row items-start rounded-b-md duration-0 mx-auto bg-white/60 p-3 -mt-0 w-full relative whitespace-nowrap">
                                     <FontAwesomeIcon icon={faCalendarDay} size='lg'
-                                                     style={{color: "#71857a", paddingLeft: "5px"}}/>
-                                    <div className={isSidebarExpanded ? (" visible ") : (" invisible ")}>
-                                        <span className="font-semibold pl-5">Calendar</span>
+                                                     style={{color: "#71857a", paddingLeft: "6px", paddingTop: "2px"}}/>
+                                    <div
+                                        className={isSidebarExpanded ? (" visible align-top w-full") : (" invisible ")}>
+
+
+                                        <div className="flex justify-between w-full">
+                                            <div className="font-semibold pl-5"
+                                                 onClick={handleCalendarClick}>Calendar
+                                            </div>
+                                            <div className="ml-auto pr-5">
+                                                <FontAwesomeIcon icon={faArrowUpRightFromSquare} size='sm'
+                                                                 style={{color: "#71857a"}}
+                                                                 onClick={handleCalendarClick}/>
+
+                                            </div>
+                                        </div>
+
                                     </div>
                                 </div>
 
                             </Link>
                         </div>
+
                     </div>
 
                     {/*BOOKMARKS*/}
@@ -531,7 +551,7 @@ export default function SideNav() {
                                                         <div className="w-4/5 pl-5">Invoices</div>
                                                         <div className="w/1/5 pl-1">
                                                             <div
-                                                                className="rounded-lg  bg-gray-200 text-gray-500 -pt-2 -pb-2 pl-1 pr-1">33
+                                                                className="rounded-xl bg-slate-200 text-gray-500  -pt-1 -pb-1 pl-2 pr-2 text-sm">13
                                                             </div>
                                                         </div>
                                                     </div>
@@ -539,7 +559,7 @@ export default function SideNav() {
                                                         <div className="w-4/5 pl-5">Proposals</div>
                                                         <div className="w/1/5 pl-1">
                                                             <div
-                                                                className="rounded-lg  bg-gray-200 text-gray-500 -pt-2 -pb-2 pl-1 pr-1">22
+                                                                className="rounded-xl bg-slate-200 text-gray-500  -pt-1 -pb-1 pl-2 pr-2 text-sm">24
                                                             </div>
                                                         </div>
                                                     </div>
