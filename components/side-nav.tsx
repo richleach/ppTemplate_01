@@ -83,7 +83,8 @@ export default function SideNav() {
                                                      style={{paddingLeft: "4px"}}/>
                                     <div className={isSidebarExpanded ? (" visible ") : (" invisible ")}>
                                         <div className="pl-3">
-                                            <input type="text" placeholder="Search for anything...." className="bg-transparent placeholder:text-white/70  outline:none focus:outline-none  -pl-4"/>
+                                            <input type="text" placeholder="Search for anything...."
+                                                   className="bg-transparent placeholder:text-white/70  outline:none focus:outline-none  -pl-4"/>
                                             {/*<Input type="text" placeholder="Search for anything...."
                                                    className="h-5 border-0 text-sm placeholder:text-white/70 focus-visible:none" style={{
                                                 backgroundColor: "#c9a4b4",
@@ -105,7 +106,7 @@ export default function SideNav() {
                             <div
                                 className="flex flex-row items-start rounded-md duration-0 mx-auto bg-white/60 p-3 -mt-0 w-full relative whitespace-nowrap">
                                 <FontAwesomeIcon icon={faGridRound2Plus} size='lg'
-                                                 style={{color: "#71857a", paddingLeft: "5px"}} fixedWidth/>
+                                                 style={{color: "#71857a", paddingLeft: "6px", paddingTop: "2px"}}/>
                                 <div
                                     className={isSidebarExpanded ? (" visible align-top w-full") : (" invisible ")}>
 
@@ -130,7 +131,7 @@ export default function SideNav() {
                                     <div>
                                         {!isSidebarExpanded ? (
                                             isQaExpanded ? (
-                                                <div className="border-l border-gray-500 visible -ml-3 mt-3">
+                                                <div className="border-l border-gray-500 visible -ml-2 mt-3">
                                                     <div className="flex">
                                                         <div
                                                             className="pl-4 mr-3 w-1/5">&nbsp;</div>
@@ -156,7 +157,7 @@ export default function SideNav() {
                                                         <div className="w-4/5 pl-5">Invoices</div>
                                                         <div className="w/1/5 pl-1">
                                                             <div
-                                                                className="rounded-xl bg-slate-200 text-gray-500  -pt-1 -pb-1 pl-2 pr-2 text-sm">14
+                                                                className="rounded-xl bg-slate-200 text-gray-500  -pt-1 -pb-1 pl-2 pr-2 text-sm">13
                                                             </div>
                                                         </div>
                                                     </div>
@@ -164,7 +165,7 @@ export default function SideNav() {
                                                         <div className="w-4/5 pl-5">Proposals</div>
                                                         <div className="w/1/5 pl-1">
                                                             <div
-                                                                className="rounded-xl bg-slate-200 text-gray-500  -pt-1 -pb-1 pl-2 pr-2 text-sm">17
+                                                                className="rounded-xl bg-slate-200 text-gray-500  -pt-1 -pb-1 pl-2 pr-2 text-sm">24
                                                             </div>
                                                         </div>
                                                     </div>
