@@ -3,12 +3,15 @@
 import React, { Fragment, useEffect, useState } from 'react';
 import Link from 'next/link';
 
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGridRound2Plus, faBookmark, faChevronRight, faChevronDown, faMagnifyingGlass, faHouse, faHandshake, faClipboardCheck, faChartMixedUpCircleDollar, faCalendarDay, faArrowUpRightFromSquare } from "@fortawesome/pro-solid-svg-icons";
 import { Input } from "@/components/ui/input"
 
 import { NavItems } from '@/app/config';
 import { cn } from '@/lib/utils';
+import {Avatar, AvatarFallback, AvatarImage} from "@/components/ui/avatar";
+import Image from "next/image";
 
 export default function SideNav() {
 
@@ -580,7 +583,9 @@ export default function SideNav() {
 
 
                     {/* Bottom */}
-                    <div
+
+
+                    {/*<div
                         className="sticky bottom-0  mt-auto whitespace-nowrap mb-2 transition duration-200 block rounded-md  bg-white/60"
                         key="58">
                         {navItems.map((item, idx) => {
@@ -601,6 +606,27 @@ export default function SideNav() {
                             }
                         })}
                     </div>
+
+
+*/}
+
+
+
+                    <div className="sticky bottom-0 flex mb-2 mt-auto rounded-md bg-white/60 h-14">
+                        <div className="mx-auto w-full flex whitespace-nowrap h-14">
+                            <img src="/images/steveHeadShot.jpg" height={52} width={52} alt="Steve" className="rounded-md p-1"/>
+                        </div>
+                        {!isSidebarExpanded ? (
+                                <> </>
+                            ) : (
+                                <div className="my-auto flex text-left">
+                                    <div className="my-auto justify-items-start mr-36" >Steve</div>
+                                </div>
+                            )
+                        }
+                    </div>
+
+
                 </aside>
                 {/* <div className="mt-[calc(calc(90vh)-40px)] relative">
                     <button
@@ -619,6 +645,9 @@ export default function SideNav() {
         </div>
     );
 }
+
+/*
+
 
 export const SideNavItem: React.FC<{
     label: string;
@@ -665,3 +694,5 @@ export const SideNavItem: React.FC<{
         </>
     );
 };
+
+*/
