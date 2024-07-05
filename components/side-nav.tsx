@@ -101,19 +101,101 @@ export default function SideNav() {
                         </div>
                     </div>
 
-                    {/*QUICK ACTIONS*/}
+
+                    {/*REDESIGN QUICK ACTIONS*/}
                     <div className="mt-1 rounded-md flex items-center justify-center bg-transparent">
-                        <Link
-                            href="/"
-                            className="w-full">
+                        <Link href="/" className="w-full">
+                            <div
+                                className="flex flex-row items-start rounded-md duration-0 mx-auto bg-white/60 w-full relative whitespace-nowrap">
+                                <FontAwesomeIcon icon={faGridRound2Plus} style={{
+                                    color: "#71857a",
+                                    fontSize: "21px",
+                                    paddingTop: "14px",
+                                    paddingLeft: "14px"
+                                }}/>
+                                <div className={isSidebarExpanded ? (" visible align-top w-full") : (" invisible ")}
+                                     style={{paddingBottom: "14px"}}>
+                                    <div className="flex justify-between w-full" style={{paddingTop: "14px"}}>
+                                        <div className="font-semibold"
+                                             onClick={handleQaClick} style={{paddingLeft: "17px"}}>Quick Actions
+                                        </div>
+                                        <div className="ml-auto pr-2">
+                                            <FontAwesomeIcon icon={faChevronRight} size='sm'
+                                                             style={{color: "#71857a"}}
+                                                             className={!isQaExpanded ? (" visible ") : (" invisible ")}
+                                                             onClick={handleQaClick}/>
+                                            <FontAwesomeIcon icon={faChevronDown} size='sm'
+                                                             style={{color: "#71857a"}}
+                                                             className={isQaExpanded ? (" visible pr-2 ") : (" invisible ")}
+                                                             onClick={handleQaClick}/>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        {!isSidebarExpanded ? (
+                                            isQaExpanded ? (
+                                                <div className="border-l border-gray-400 visible mt-3" style={{marginLeft: "-9px"}}>
+                                                    <div className="flex">
+                                                        <div
+                                                            className="pl-4 mr-3 w-[1]">&nbsp;</div>
+                                                        <div className="w-3/5">Invoices</div>
+                                                        <div className="w/1/5">33</div>
+                                                    </div>
+                                                    <div className="flex">
+                                                        <div
+                                                            className="pl-4 mr-3 w-[1]">&nbsp;</div>
+                                                        <div className="w-3/5">Proposals</div>
+                                                        <div className="w/1/5 ml-auto">22</div>
+                                                    </div>
+                                                </div>
+                                            ) : (
+                                                <div style={{display: "none"}}>
+
+                                                </div>
+                                            )
+                                        ) : (
+                                            isQaExpanded ? (
+                                                <div className="visible pt-1">
+                                                    <div className="flex pt-1">
+                                                        <div className="w-4/5" style={{paddingLeft: "19px"}}>Invoices
+                                                        </div>
+                                                        <div className="w/1/5"
+                                                             style={{paddingTop: "3px", paddingLeft: "6px"}}>
+                                                            <div
+                                                                className="rounded-xl bg-slate-200 text-gray-500  -pt-1 -pb-1 pl-2 pr-2 text-sm">13
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div className="flex pt-1">
+                                                        <div className="w-4/5" style={{paddingLeft: "19px"}}>Proposals
+                                                        </div>
+                                                        <div className="w/1/5"
+                                                             style={{paddingTop: "3px", paddingLeft: "6px"}}>
+                                                            <div
+                                                                className="rounded-xl bg-slate-200 text-gray-500  -pt-1 -pb-1 pl-2 pr-2 text-sm">24
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            ) : (
+                                                <> </>
+                                            )
+                                        )}
+                                    </div>
+                                </div>
+                            </div>
+                        </Link>
+                    </div>
+
+
+                    {/*QUICK ACTIONS*/}
+                    {/*<div className="mt-1 rounded-md flex items-center justify-center bg-transparent">
+                        <Link href="/" className="w-full">
                             <div
                                 className="flex flex-row items-start rounded-md duration-0 mx-auto bg-white/60 p-3 -mt-0 w-full relative whitespace-nowrap">
                                 <FontAwesomeIcon icon={faGridRound2Plus} size='lg'
                                                  style={{color: "#71857a", paddingLeft: "5px", paddingTop: "2px"}}/>
-                                <div
-                                    className={isSidebarExpanded ? (" visible align-top w-full") : (" invisible ")}>
-
-
+                                <div className={isSidebarExpanded ? (" visible align-top w-full") : (" invisible ")}>
                                     <div className="flex justify-between w-full">
                                         <div className="font-semibold pl-4"
                                              onClick={handleQaClick}>Quick Actions
@@ -130,11 +212,10 @@ export default function SideNav() {
                                         </div>
                                     </div>
 
-
                                     <div>
                                         {!isSidebarExpanded ? (
                                             isQaExpanded ? (
-                                                <div className="border-l border-gray-500 visible -ml-3 mt-3">
+                                                <div className="border-l border-gray-400 visible -ml-3 mt-3">
                                                     <div className="flex">
                                                         <div
                                                             className="pl-4 mr-3 w-1/5">&nbsp;</div>
@@ -178,18 +259,15 @@ export default function SideNav() {
                                             )
                                         )}
                                     </div>
-
-
                                 </div>
                             </div>
-
                         </Link>
-                    </div>
+                    </div>*/}
 
                     {/*MAIN STACK*/}
                     {/*HOME*/}
                     <div className="mt-1 relative pb-0 rounded-md" key="21">
-                        <div className="flex items-center justify-center bg-transparent">
+                        {/*<div className="flex items-center justify-center bg-transparent">
                             <Link
                                 href="/"
                                 className="w-full">
@@ -206,17 +284,39 @@ export default function SideNav() {
                                 </div>
 
                             </Link>
+                        </div>*/}
+
+                        {/*REDESIGN - HOME*/}
+                        <div className="mt-0 rounded-t-md flex items-center justify-center bg-transparent">
+                            <Link href="/" className="w-full">
+                                <div
+                                    className="flex flex-row items-start rounded-t-md duration-0 mx-auto bg-white/60 w-full relative whitespace-nowrap">
+                                    <FontAwesomeIcon icon={faHouse} style={{
+                                        color: "#71857a",
+                                        fontSize: "19px",
+                                        paddingTop: "14px",
+                                        paddingLeft: "16px"
+                                    }} />
+                                    <div className={isSidebarExpanded ? (" visible align-top w-full") : (" invisible ")}
+                                         style={{paddingBottom: "14px"}}>
+                                        <div className="flex justify-between w-full" style={{paddingTop: "14px"}}>
+                                            <div className="font-semibold pl-4">Home</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </Link>
                         </div>
 
                         {/*LEADS & EVENTS*/}
-                        <div className="flex items-center justify-center bg-transparent">
+                        {/*<div className="flex items-center justify-center bg-transparent">
                             <Link
                                 href="/"
                                 className="w-full">
                                 <div
                                     className="flex flex-row items-start duration-0 mx-auto bg-white/60 p-3 -mt-0 w-full relative whitespace-nowrap">
                                     <FontAwesomeIcon icon={faHandshake} size='lg'
-                                                     style={{color: "#71857a", paddingLeft: "0px"}} fixedWidth border/>
+                                                     style={{color: "#71857a", paddingLeft: "0px"}} fixedWidth
+                                                     border/>
                                     <div
                                         className={isSidebarExpanded ? (" visible align-top w-full") : (" invisible ")}>
 
@@ -241,7 +341,7 @@ export default function SideNav() {
                                         <div>
                                             {!isSidebarExpanded ? (
                                                 isLnaExpanded ? (
-                                                    <div className="border-l border-gray-500 visible -ml-5 mt-3">
+                                                    <div className="border-l border-gray-400 visible -ml-5 mt-3">
                                                         <div className="flex">
                                                             <div
                                                                 className="pl-4 mr-3 w-1/5">&nbsp;</div>
@@ -291,10 +391,98 @@ export default function SideNav() {
                                 </div>
 
                             </Link>
+                        </div>*/}
+
+
+                        {/*REDESIGN - LEADS AND EVENTS*/}
+                        <div className="mt-0 flex items-center justify-center bg-transparent">
+                            <Link href="/" className="w-full">
+                                <div
+                                    className="flex flex-row items-start duration-0 mx-auto bg-white/60 w-full relative whitespace-nowrap">
+                                    <FontAwesomeIcon icon={faHandshake} style={{
+                                        color: "#71857a",
+                                        fontSize: "19px",
+                                        paddingTop: "14px",
+                                        paddingLeft: "14px"
+                                    }}/>
+                                    <div className={isSidebarExpanded ? (" visible align-top w-full") : (" invisible ")}
+                                         style={{paddingBottom: "14px"}}>
+                                        <div className="flex justify-between w-full" style={{paddingTop: "14px"}}>
+                                            <div className="font-semibold pl-4"
+                                                 onClick={handleLnaClick}>Leads & Events
+                                            </div>
+                                            <div className="ml-auto pr-2">
+                                                <FontAwesomeIcon icon={faChevronRight} size='sm'
+                                                                 style={{color: "#71857a"}}
+                                                                 className={!isLnaExpanded ? (" visible ") : (" invisible ")}
+                                                                 onClick={handleLnaClick}/>
+                                                <FontAwesomeIcon icon={faChevronDown} size='sm'
+                                                                 style={{color: "#71857a"}}
+                                                                 className={isLnaExpanded ? (" visible pr-2 ") : (" invisible ")}
+                                                                 onClick={handleLnaClick}/>
+                                            </div>
+                                        </div>
+
+                                        <div>
+                                            {!isSidebarExpanded ? (
+                                                isLnaExpanded ? (
+                                                    <div className="border-l border-gray-400 visible -ml-3 mt-3">
+                                                        <div className="flex">
+                                                            <div
+                                                                className="pl-4 mr-3 w-[1]">&nbsp;</div>
+                                                            <div className="w-3/5">Invoices</div>
+                                                            <div className="w/1/5">33</div>
+                                                        </div>
+                                                        <div className="flex">
+                                                            <div
+                                                                className="pl-4 mr-3 w-[1]">&nbsp;</div>
+                                                            <div className="w-3/5">Proposals</div>
+                                                            <div className="w/1/5 ml-auto">22</div>
+                                                        </div>
+                                                    </div>
+                                                ) : (
+                                                    <div style={{display: "none"}}>
+
+                                                    </div>
+                                                )
+                                            ) : (
+                                                isLnaExpanded ? (
+                                                    <div className="visible pt-1">
+                                                        <div className="flex pt-1">
+                                                            <div className="w-4/5"
+                                                                 style={{paddingLeft: "17px"}}>Invoices
+                                                            </div>
+                                                            <div className="w/1/5"
+                                                                 style={{paddingTop: "3px", paddingLeft: "6px"}}>
+                                                                <div
+                                                                    className="rounded-xl bg-slate-200 text-gray-500  -pt-1 -pb-1 pl-2 pr-2 text-sm">13
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div className="flex pt-1">
+                                                            <div className="w-4/5"
+                                                                 style={{paddingLeft: "17px"}}>Proposals
+                                                            </div>
+                                                            <div className="w/1/5"
+                                                                 style={{paddingTop: "3px", paddingLeft: "6px"}}>
+                                                                <div
+                                                                    className="rounded-xl bg-slate-200 text-gray-500  -pt-1 -pb-1 pl-2 pr-2 text-sm">24
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                ) : (
+                                                    <> </>
+                                                )
+                                            )}
+                                        </div>
+                                    </div>
+                                </div>
+                            </Link>
                         </div>
 
                         {/*FINANCIALS*/}
-                        <div className="flex items-center justify-center bg-transparent">
+                        {/*<div className="flex items-center justify-center bg-transparent">
                             <Link
                                 href="/"
                                 className="w-full">
@@ -323,21 +511,20 @@ export default function SideNav() {
                                         </div>
 
 
-                                        <div>
+                                        <div className="pl-1">
                                             {!isSidebarExpanded ? (
                                                 isFinExpanded ? (
-                                                    <div className="border-l border-gray-500 visible -ml-3 mt-3">
+
+                                                    <div className="border-l border-gray-400 visible -ml-4 mt-3">
                                                         <div className="flex">
-                                                            <div
-                                                                className="pl-4 mr-3 w-1/5">&nbsp;</div>
-                                                            <div className="w-3/5">Invoices</div>
-                                                            <div className="w/1/5">33</div>
+                                                            <div className="pl-4 mr-4 w-1/5">&nbsp;</div>
+                                                            <div className="w-3/5 -ml-2">Invoices</div>
+                                                            <div className="w-1/5">33</div>
                                                         </div>
                                                         <div className="flex">
-                                                            <div
-                                                                className="pl-4 mr-3 w-1/5">&nbsp;</div>
-                                                            <div className="w-3/5">Proposals</div>
-                                                            <div className="w/1/5 ml-auto">22</div>
+                                                            <div className="pl-4 mr-4 w-1/5">&nbsp;</div>
+                                                            <div className="w-3/5 -ml-2">Proposals</div>
+                                                            <div className="w-1/5 ml-auto">22</div>
                                                         </div>
                                                     </div>
                                                 ) : (
@@ -350,7 +537,7 @@ export default function SideNav() {
                                                     <div className="visible pt-1">
                                                         <div className="flex pt-1">
                                                             <div className="w-4/5 pl-5">Invoices</div>
-                                                            <div className="w/1/5 pl-1">
+                                                            <div className="w-1/5 pl-1">
                                                                 <div
                                                                     className="rounded-xl bg-slate-200 text-gray-500  -pt-1 -pb-1 pl-2 pr-2 text-sm">39
                                                                 </div>
@@ -358,7 +545,7 @@ export default function SideNav() {
                                                         </div>
                                                         <div className="flex pt-1">
                                                             <div className="w-4/5 pl-5">Proposals</div>
-                                                            <div className="w/1/5 pl-1">
+                                                            <div className="w-1/5 pl-1">
                                                                 <div
                                                                     className="rounded-xl bg-slate-200 text-gray-500  -pt-1 -pb-1 pl-2 pr-2 text-sm">17
                                                                 </div>
@@ -376,10 +563,97 @@ export default function SideNav() {
                                 </div>
 
                             </Link>
+                        </div>*/}
+
+                        {/*REDESIGN - FINANCIALS*/}
+                        <div className="mt-0 flex items-center justify-center bg-transparent">
+                            <Link href="/" className="w-full">
+                                <div
+                                    className="flex flex-row items-start duration-0 mx-auto bg-white/60 w-full relative whitespace-nowrap">
+                                    <FontAwesomeIcon icon={faChartMixedUpCircleDollar} style={{
+                                        color: "#71857a",
+                                        fontSize: "21px",
+                                        paddingTop: "14px",
+                                        paddingLeft: "14px"
+                                    }} />
+                                    <div className={isSidebarExpanded ? (" visible align-top w-full") : (" invisible ")}
+                                         style={{paddingBottom: "14px"}}>
+                                        <div className="flex justify-between w-full" style={{paddingTop: "14px"}}>
+                                            <div className="font-semibold pl-4"
+                                                 onClick={handleFinancialsClick}>Financials
+                                            </div>
+                                            <div className="ml-auto pr-2">
+                                                <FontAwesomeIcon icon={faChevronRight} size='sm'
+                                                                 style={{color: "#71857a"}}
+                                                                 className={!isFinExpanded ? (" visible ") : (" invisible ")}
+                                                                 onClick={handleFinancialsClick}/>
+                                                <FontAwesomeIcon icon={faChevronDown} size='sm'
+                                                                 style={{color: "#71857a"}}
+                                                                 className={isFinExpanded ? (" visible pr-2 ") : (" invisible ")}
+                                                                 onClick={handleFinancialsClick}/>
+                                            </div>
+                                        </div>
+
+                                        <div>
+                                            {!isSidebarExpanded ? (
+                                                isFinExpanded ? (
+                                                    <div className="border-l border-gray-400 visible -ml-3 mt-3">
+                                                        <div className="flex">
+                                                            <div
+                                                                className="pl-4 mr-3 w-[1]">&nbsp;</div>
+                                                            <div className="w-3/5">Invoices</div>
+                                                            <div className="w/1/5">33</div>
+                                                        </div>
+                                                        <div className="flex">
+                                                            <div
+                                                                className="pl-4 mr-3 w-[1]">&nbsp;</div>
+                                                            <div className="w-3/5">Proposals</div>
+                                                            <div className="w/1/5 ml-auto">22</div>
+                                                        </div>
+                                                    </div>
+                                                ) : (
+                                                    <div style={{display: "none"}}>
+
+                                                    </div>
+                                                )
+                                            ) : (
+                                                isFinExpanded ? (
+                                                    <div className="visible pt-1">
+                                                        <div className="flex pt-1">
+                                                            <div className="w-4/5"
+                                                                 style={{paddingLeft: "17px"}}>Invoices
+                                                            </div>
+                                                            <div className="w/1/5"
+                                                                 style={{paddingTop: "3px", paddingLeft: "6px"}}>
+                                                                <div
+                                                                    className="rounded-xl bg-slate-200 text-gray-500  -pt-1 -pb-1 pl-2 pr-2 text-sm">13
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div className="flex pt-1">
+                                                            <div className="w-4/5"
+                                                                 style={{paddingLeft: "17px"}}>Proposals
+                                                            </div>
+                                                            <div className="w/1/5"
+                                                                 style={{paddingTop: "3px", paddingLeft: "6px"}}>
+                                                                <div
+                                                                    className="rounded-xl bg-slate-200 text-gray-500  -pt-1 -pb-1 pl-2 pr-2 text-sm">24
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                ) : (
+                                                    <> </>
+                                                )
+                                            )}
+                                        </div>
+                                    </div>
+                                </div>
+                            </Link>
                         </div>
 
                         {/*PRODUCTIVITY*/}
-                        <div className="flex items-center justify-center bg-transparent">
+                        {/*<div className="flex items-center justify-center bg-transparent">
                             <Link
                                 href="/"
                                 className="w-full">
@@ -411,7 +685,7 @@ export default function SideNav() {
                                         <div>
                                             {!isSidebarExpanded ? (
                                                 isProdExpanded ? (
-                                                    <div className="border-l border-gray-500 visible -ml-2 mt-3">
+                                                    <div className="border-l border-gray-400 visible -ml-2 mt-3">
                                                         <div className="flex">
                                                             <div
                                                                 className="pl-4 mr-3 w-1/5">&nbsp;</div>
@@ -461,6 +735,93 @@ export default function SideNav() {
                                 </div>
 
                             </Link>
+                        </div>*/}
+
+                        {/*REDESIGN - PRODUCTIVITY*/}
+                        <div className="mt-0 flex items-center justify-center bg-transparent">
+                            <Link href="/" className="w-full">
+                                <div
+                                    className="flex flex-row items-start duration-0 mx-auto bg-white/60 w-full relative whitespace-nowrap">
+                                    <FontAwesomeIcon icon={faClipboardCheck} style={{
+                                        color: "#71857a",
+                                        fontSize: "21px",
+                                        paddingTop: "14px",
+                                        paddingLeft: "18px"
+                                    }} />
+                                    <div className={isSidebarExpanded ? (" visible align-top w-full") : (" invisible ")}
+                                         style={{paddingBottom: "14px"}}>
+                                        <div className="flex justify-between w-full" style={{paddingTop: "14px"}}>
+                                            <div className="font-semibold"
+                                                 onClick={handleProdClick} style={{paddingLeft: "19px"}}>Productivity
+                                            </div>
+                                            <div className="ml-auto pr-2">
+                                                <FontAwesomeIcon icon={faChevronRight} size='sm'
+                                                                 style={{color: "#71857a"}}
+                                                                 className={!isProdExpanded ? (" visible ") : (" invisible ")}
+                                                                 onClick={handleProdClick}/>
+                                                <FontAwesomeIcon icon={faChevronDown} size='sm'
+                                                                 style={{color: "#71857a"}}
+                                                                 className={isProdExpanded ? (" visible pr-2 ") : (" invisible ")}
+                                                                 onClick={handleProdClick}/>
+                                            </div>
+                                        </div>
+
+                                        <div>
+                                            {!isSidebarExpanded ? (
+                                                isProdExpanded ? (
+                                                    <div className="border-l border-gray-400 visible -ml-2 mt-3">
+                                                        <div className="flex">
+                                                            <div
+                                                                className="pl-4 mr-3 w-[1]">&nbsp;</div>
+                                                            <div className="w-3/5">Invoices</div>
+                                                            <div className="w/1/5">33</div>
+                                                        </div>
+                                                        <div className="flex">
+                                                            <div
+                                                                className="pl-4 mr-3 w-[1]">&nbsp;</div>
+                                                            <div className="w-3/5">Proposals</div>
+                                                            <div className="w/1/5 ml-auto">22</div>
+                                                        </div>
+                                                    </div>
+                                                ) : (
+                                                    <div style={{display: "none"}}>
+
+                                                    </div>
+                                                )
+                                            ) : (
+                                                isProdExpanded ? (
+                                                    <div className="visible pt-1">
+                                                        <div className="flex pt-1">
+                                                            <div className="w-4/5"
+                                                                 style={{paddingLeft: "20px"}}>Invoices
+                                                            </div>
+                                                            <div className="w/1/5"
+                                                                 style={{paddingTop: "3px", paddingLeft: "6px"}}>
+                                                                <div
+                                                                    className="rounded-xl bg-slate-200 text-gray-500  -pt-1 -pb-1 pl-2 pr-2 text-sm">13
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div className="flex pt-1">
+                                                            <div className="w-4/5"
+                                                                 style={{paddingLeft: "20px"}}>Proposals
+                                                            </div>
+                                                            <div className="w/1/5"
+                                                                 style={{paddingTop: "3px", paddingLeft: "6px"}}>
+                                                                <div
+                                                                    className="rounded-xl bg-slate-200 text-gray-500  -pt-1 -pb-1 pl-2 pr-2 text-sm">24
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                ) : (
+                                                    <> </>
+                                                )
+                                            )}
+                                        </div>
+                                    </div>
+                                </div>
+                            </Link>
                         </div>
 
                         {/*CALENDAR*/}
@@ -471,14 +832,18 @@ export default function SideNav() {
                                 <div
                                     className="flex flex-row items-start rounded-b-md duration-0 mx-auto bg-white/60 p-3 -mt-0 w-full relative whitespace-nowrap">
                                     <FontAwesomeIcon icon={faCalendarDay} size='lg'
-                                                     style={{color: "#71857a", paddingLeft: "6px", paddingTop: "2px"}}/>
+                                                     style={{
+                                                         color: "#71857a",
+                                                         paddingLeft: "6px",
+                                                         paddingTop: "2px"
+                                                     }}/>
                                     <div
                                         className={isSidebarExpanded ? (" visible align-top w-full") : (" invisible ")}>
 
 
                                         <div className="flex justify-between w-full">
-                                            <div className="font-semibold pl-5"
-                                                 onClick={handleCalendarClick}>Calendar
+                                            <div className="font-semibold"
+                                                 onClick={handleCalendarClick} style={{paddingLeft: "18px"}}>Calendar
                                             </div>
                                             <div className="ml-auto pr-5">
                                                 <FontAwesomeIcon icon={faArrowUpRightFromSquare} size='sm'
@@ -497,7 +862,7 @@ export default function SideNav() {
                     </div>
 
                     {/*BOOKMARKS*/}
-                    <div className="mt-1 rounded-md flex items-center justify-center bg-transparent">
+                    {/*<div className="mt-1 rounded-md flex items-center justify-center bg-transparent">
                         <Link
                             href="/"
                             className="w-full">
@@ -529,7 +894,7 @@ export default function SideNav() {
                                     <div>
                                         {!isSidebarExpanded ? (
                                             isBookExpanded ? (
-                                                <div className="border-l border-gray-500 visible -ml-2 mt-3">
+                                                <div className="border-l border-gray-400 visible -ml-2 mt-3">
                                                     <div className="flex">
                                                         <div
                                                             className="pl-4 mr-3 w-1/5">&nbsp;</div>
@@ -579,22 +944,107 @@ export default function SideNav() {
                             </div>
 
                         </Link>
-                    </div>
+                    </div>*/}
 
+                    {/*REDESIGN - BOOKMARKS*/}
+                    <div className="mt-1 rounded-md flex items-center justify-center bg-transparent">
+                        <Link href="/" className="w-full">
+                            <div
+                                className="flex flex-row items-start rounded-md duration-0 mx-auto bg-white/60 w-full relative whitespace-nowrap">
+                                <FontAwesomeIcon icon={faBookmark} style={{
+                                    color: "#71857a",
+                                    fontSize: "23px",
+                                    paddingTop: "14px",
+                                    paddingLeft: "18px"
+                                }}  />
+                                <div className={isSidebarExpanded ? (" visible align-top w-full") : (" invisible ")}
+                                     style={{paddingBottom: "14px"}}>
+                                    <div className="flex justify-between w-full" style={{paddingTop: "14px"}}>
+                                        <div className="font-semibold"
+                                             onClick={handleBookClick} style={{paddingLeft:"19px"}}>Bookmarks
+                                        </div>
+                                        <div className="ml-auto pr-2">
+                                            <FontAwesomeIcon icon={faChevronRight} size='sm'
+                                                             style={{color: "#71857a"}}
+                                                             className={!isBookExpanded ? (" visible ") : (" invisible ")}
+                                                             onClick={handleBookClick}/>
+                                            <FontAwesomeIcon icon={faChevronDown} size='sm'
+                                                             style={{color: "#71857a"}}
+                                                             className={isBookExpanded ? (" visible pr-2 ") : (" invisible ")}
+                                                             onClick={handleBookClick}/>
+                                        </div>
+                                    </div>
+
+                                    <div>
+                                        {!isSidebarExpanded ? (
+                                            isBookExpanded ? (
+                                                <div className="border-l border-gray-400 visible mt-3" style={{marginLeft: "-9px"}}>
+                                                    <div className="flex">
+                                                        <div
+                                                            className="pl-4 mr-3 w-[1]">&nbsp;</div>
+                                                        <div className="w-3/5">Invoices</div>
+                                                        <div className="w/1/5">33</div>
+                                                    </div>
+                                                    <div className="flex">
+                                                        <div
+                                                            className="pl-4 mr-3 w-[1]">&nbsp;</div>
+                                                        <div className="w-3/5">Proposals</div>
+                                                        <div className="w/1/5 ml-auto">22</div>
+                                                    </div>
+                                                </div>
+                                            ) : (
+                                                <div style={{display: "none"}}>
+
+                                                </div>
+                                            )
+                                        ) : (
+                                            isBookExpanded ? (
+                                                <div className="visible pt-1">
+                                                    <div className="flex pt-1">
+                                                        <div className="w-4/5" style={{paddingLeft: "19px"}}>Invoices
+                                                        </div>
+                                                        <div className="w/1/5"
+                                                             style={{paddingTop: "3px", paddingLeft: "6px"}}>
+                                                            <div
+                                                                className="rounded-xl bg-slate-200 text-gray-500  -pt-1 -pb-1 pl-2 pr-2 text-sm">13
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div className="flex pt-1">
+                                                        <div className="w-4/5" style={{paddingLeft: "19px"}}>Proposals
+                                                        </div>
+                                                        <div className="w/1/5"
+                                                             style={{paddingTop: "3px", paddingLeft: "6px"}}>
+                                                            <div
+                                                                className="rounded-xl bg-slate-200 text-gray-500  -pt-1 -pb-1 pl-2 pr-2 text-sm">24
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            ) : (
+                                                <> </>
+                                            )
+                                        )}
+                                    </div>
+                                </div>
+                            </div>
+                        </Link>
+                    </div>
 
                     {/* Bottom */}
 
                     <div className="sticky bottom-0 flex mb-2 mt-auto rounded-md bg-white/60 h-14">
                         <div className="mx-auto w-full flex whitespace-nowrap h-14">
-                            <img src="/images/steveHeadShot.jpg" height={52} width={52} alt="Steve" className="rounded-md p-1"/>
+                            <img src="/images/steveHeadShot.jpg" height={52} width={52} alt="Steve"
+                                 className="rounded-md p-1"/>
                         </div>
                         {!isSidebarExpanded ? (
-                                <> </>
-                            ) : (
-                                <div className="my-auto flex text-left">
-                                    <div className="my-auto justify-items-start mr-36" >Steve</div>
-                                </div>
-                            )
+                            <> </>
+                        ) : (
+                            <div className="my-auto flex text-left">
+                                <div className="my-auto justify-items-start mr-36">Steve</div>
+                            </div>
+                        )
                         }
                     </div>
 
